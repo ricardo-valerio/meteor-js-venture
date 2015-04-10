@@ -1,0 +1,65 @@
+<head>
+  <title>The Questionator</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+
+<body>
+  <div class="container-fluid" style="padding-top:60px;">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">The Questionator</a>
+
+          <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {{> questionForm}}
+
+    {{> questionsList}}
+  </div>
+</body>
+
+<template name="questionForm">
+  <form role="form">
+    <div class="form-group">
+      <textarea id="question"
+        class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary"
+        type="submit" value="Ask away" />
+    </div>
+  </form>
+</template>
+
+<template name="questionsList">
+  <div id="questions">
+    {{#each questions}}
+      <hr />
+      <h6>{{text}} <small>Votes: {{votes}}</small></h6>
+      <a class="btn btn-default btn-xs vote-up">up</a>
+      <a class="btn btn-default btn-xs vote-down">down</a>
+    {{/each}}
+  </div>
+  <hr />
+</template>

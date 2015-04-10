@@ -1,0 +1,11 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "user": "user",
+    "password": "password",
+    "database": "meteordb",
+    "serverId": 129,
+    "minInterval": 200
+  },
+  "recreateDb": false
+}

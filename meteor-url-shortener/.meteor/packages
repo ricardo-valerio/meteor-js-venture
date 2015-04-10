@@ -1,0 +1,19 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+less
+http
+accounts-password
+npvn:accounts-ui-bootstrap-3
+meteorhacks:kadira
+aldeed:collection2
+aldeed:autoform
+iron:router
+gadicohen:headers
+servicelocale:geoip
+pfafman:font-awesome-4
+meteorhacks:zones
+

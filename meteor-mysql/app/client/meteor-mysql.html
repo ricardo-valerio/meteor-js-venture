@@ -1,0 +1,19 @@
+<head>
+  <title>People in a MySQL DB</title>
+</head>
+
+<body>
+  <h1>Hello!</h1>
+
+  {{> people}}
+</body>
+
+<template name="people">
+  <ul>
+    {{# each people}}
+    <li>
+      <strong>{{name}}</strong>
+    </li>
+    {{/each}}
+  </ul>
+</template>

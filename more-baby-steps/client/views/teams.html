@@ -1,0 +1,12 @@
+<template name="teams">
+	<h3>Teams</h3>
+
+	{{ congrats }}
+
+	<ul>
+		{{#each teamsArray}}
+			<li>{{name}} - founded in {{ yearFoundation}}</li>
+		{{/each}}
+	</ul>
+
+</template>
