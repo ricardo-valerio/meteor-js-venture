@@ -1,0 +1,52 @@
+<head>
+	<title>Chat app</title>
+</head>
+
+<body>
+	 <div class="navbar navbar-static-top navbar-inverse">
+
+  	<div class="navbar-inner">
+  		<div class="container">
+  			<a class="brand" href="/">Chatapp</a>
+  			<ul class="nav pull-right">
+  				<li>
+  					{{> loginButtons}}
+  				</li>
+  			</ul>
+  		</div>
+  	</div>
+
+  </div>
+	<div class="container">
+	<h1><i class="fa fa-comments"></i> Chatapp</h1>
+	{{> welcome}}
+		<br>
+	{{> input}}
+	{{> messages}}
+	</div>
+</body>
+
+<template name="welcome">
+	{{#if currentUser}}
+		<h4> 
+			Hello <strong>{{name}}</strong> ! Type your message in the box below.
+		</h4>
+	{{else}}
+		<h4>
+			Welcome to the example chat app ! Please log in to write messages.
+		</h4>
+	{{/if}}
+
+</template>
+
+<template name="messages">
+	{{#each messages}}
+		<strong>{{name}}</strong> at {{time}} : {{message}}<br>
+	{{/each}}
+</template>
+
+<template name="input">
+	{{#if currentUser}}
+	<p>Message: <input type="text" id="message"></p>
+	{{/if}}
+</template>

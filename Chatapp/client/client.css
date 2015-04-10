@@ -1,0 +1,20 @@
+html {
+	padding: 10 px;
+	fong-family: Proxima Nova;
+}
+
+.login-buttons-dropdown-align-right {
+	float:right;
+}
+.login-display-name{color: white }
+.login-button{background-color: white}
+.navbar-inner{padding-top: 1em}
+.navbar{background-color: #ff4537}
+.brand{color:white}
+
+footer{
+    padding-top: 2em;
+    text-align: center;
+    margin-left: auto;
+    font-size: 1.1em
+}
