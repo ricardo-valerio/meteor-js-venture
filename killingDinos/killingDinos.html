@@ -1,0 +1,92 @@
+<head>
+  <title>killingDinos</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+	  {{> header }}
+	  {{> main }}
+</body>
+
+
+<!--  -->
+
+<template name="header">
+	<header>
+		<hgroup>
+			<h1>{{ title }}</h1>
+			<h2>{{ tagline }}</h2>
+		</hgroup>
+	</header>
+</template>
+
+<!--  -->
+
+<!--
+NOTA: não é possível ter um template com o nome "body"
+
+	{{> body}}
+-->
+
+<template name="main">
+	<section>
+		{{> dinos }}
+		{{> addDino }}
+		{{> hateAndDestroy }}
+	</section>
+</template>
+
+<!--  -->
+
+<template name="addDino">
+	<div>
+		<input type="text" id="dinoToAdd" placeholder="Add a Dino...">
+		<input type="button" id="addDino" value="Add!">
+	</div>
+</template>
+
+<!--  -->
+
+<template name="dinos">
+	<table>
+		<thead>
+			<tr>
+				<td class="dino">Name</td>
+				<td class="votes">Votes</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each dinosaurs}}
+				{{> dino }}
+			{{else}}
+				<tr>
+					<td>No dinosaurs found</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+
+<!--  -->
+
+<template name="dino">
+	<tr class="{{ selected }}">
+		<td>{{ name }}</td>
+		<td class="votes">
+			{{#if votes}}
+				{{ votes }}
+			{{else}}
+				0
+			{{/if}}
+		</td>
+	</tr>
+</template>
+
+<!--  -->
+
+<template name="hateAndDestroy">
+	<div>
+		<input type="button" id="hate" value="Hate!">
+		<input type="button" id="destroy" value="Send the Meteor!">
+	</div>
+</template>
