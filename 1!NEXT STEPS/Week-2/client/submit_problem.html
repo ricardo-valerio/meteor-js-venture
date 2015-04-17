@@ -1,0 +1,109 @@
+<template name="submitProblem">
+
+      <form onkeypress="return event.keyCode != 13;" class="form text-center">
+        <div id="submit-problem">
+          <div class="main-heading">
+            <h1>ASK FIVE WHYS</h1>
+          </div>
+          <div class="part1 dent-main">
+          <input autofocus="autofocus" type="text" value="{{problem}}" name="problem" id="problem" placeholder="What's the problem ?"/>
+          <input type="button" id="route" value="Find Its Route" class="route btn btn-sample">
+          </div>
+        </div>
+
+        <div id="submit-why1" class="hidden">
+          <div class="main-heading">
+            <h1>WHY #1 ?</h1>
+          </div>
+          <div class="part2 dent">
+          <li class="list-group-item">
+            <p>Problem - {{problem}}</p>
+          </li>
+          <input autofocus="autofocus" value="{{why1}}" type="text" name="why1" id="why1" placeholder="Because ..."/>
+          <input type="button" value="Answer #1" class="btn-sample btn answer1">
+          <button type="button" class="btn back1 back-btn"><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+
+
+        <div id="submit-why2" class="hidden">
+          <div class="main-heading">
+            <h1>WHY #2 ?</h1>
+          </div>
+          <div class="part3 dent">
+          <li class="list-group-item">
+            <p>Why #1 - {{why1}}</p>
+          </li>
+          <input autofocus="autofocus" name="why2" id="why2" value="{{why2}}" type="text" placeholder="Because ..."/>
+          <input type="button" value="Answer #2" class="btn-sample btn answer2">
+          <button type="button" class="btn back2 back-btn"><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+
+        <div id="submit-why3" class="hidden">
+          <div class="main-heading">
+            <h1>WHY #3 ?</h1>
+          </div>
+          <div class="part4 dent">
+          <li class="list-group-item">
+            <p>Why #2 - {{why2}}</p>
+          </li>
+          <input autofocus="autofocus" type="text" value="{{why3}}"  id="why3" class="" name="why3" placeholder="Because ..."/>
+          <input type="button" value="Answer #3" class="btn-sample btn answer3">
+          <button type="button" class="btn back3 back-btn "><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+        <div id="submit-why4" class="hidden">
+          <div class="main-heading">
+            <h1>WHY #4 ?</h1>
+          </div>
+          <div class="part5 dent">
+          <li class="list-group-item">
+            <p>Why #3 - {{why3}}</p>
+          </li>
+          <input autofocus="autofocus" type="text" value="{{why4}}"  id="why4" class="" name="why4" placeholder="Because ..."/>
+          <input type="button" value="Answer #4" class="btn-sample btn answer4">
+          <button type="button" class="btn back4 back-btn "><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+        <div id="submit-why5" class="hidden">
+          <div class="main-heading">
+            <h1>WHY #5 ?</h1>
+          </div>
+          <div class="part6 dent">
+          <li class="list-group-item">
+            <p>Why #4 - {{why4}}</p>
+          </li>
+          <input autofocus="autofocus" type="text" value="{{why5}}" id="why5" class="" name="why5" placeholder="Because ..."/>
+          <input type="button" value="Answer #5" class="btn-sample btn answer5">
+          <button type="button" class="btn back5 back-btn"><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+        <div id="submit-solution" class="hidden">
+          <div class="cent mobile-side part7">
+            <div class="text-left">
+            <li class="list-group-item">
+              <p>Problem - {{problem}}</p>
+            </li>
+          </div>
+            <li class="list-group-item">
+              <p>Why #1 - {{why1}}</p>
+              <p>Why #2 - {{why2}}</p>
+              <p>Why #3 - {{why3}}</p>
+              <p>Why #4 - {{why4}}</p> 
+              <p>Why #5 - {{why5}}</p>
+            </li>
+              <input autofocus="autofocus" type="text" value="{{solution}}" name="solution" id="solution" placeholder="What could be the best solution ?"/>
+              <input type="submit" id="submit-all" name="submit-all" value="Answer" class="btn btn-sample submit-all">
+              <button type="button" class="btn back6 back-btn"><i class="fa fa-arrow-left fa-3x"></i></button>
+          </div>
+        </div>
+
+      </form>
+ 
+</template>

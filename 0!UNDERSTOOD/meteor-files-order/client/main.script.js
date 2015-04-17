@@ -1,0 +1,1 @@
+console.log('/client/main.script.js loaded');
