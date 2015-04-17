@@ -1,1 +1,0 @@
-console.log('/client/1script.js loaded');
