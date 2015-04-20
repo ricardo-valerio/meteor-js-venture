@@ -1,13 +1,15 @@
 Template.teams.helpers
-  congrats : "Yaaaay"
-#  teamsArray : [
-#            {
-#              name: 'Team 1'
-#              yearFoundation: 1928
-#            }
-#            {
-#              name: 'Team 2'
-#              yearFoundation: 1956
-#            }
-#          ]
-  teamsArray : -> Teams.find()
+teams: -> Teams.find()
+creating: -> Session.get 'creating'
+
+Template.teams.events
+"click .create": (e, tpl) ->
+e.preventDefault()
+Session.set 'creating', true
+
+"submit form.form-create": (e, tpl) ->
+e.preventDefault()
+team = {name: tpl.$("input[name='name']").val()}
+if team.name.length
+Teams.insert team
+Session.set 'creating', false
