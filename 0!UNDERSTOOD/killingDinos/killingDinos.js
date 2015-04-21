@@ -7,6 +7,14 @@ if (Meteor.isClient) {
 
   //-------------------
 
+  Template.body.helpers({
+    user : function() {
+       return "Ricardo";
+    }
+  });
+
+  //-------------------
+
   Template.header.helpers({
     title : function() {
       return "Hello Yucutan!"

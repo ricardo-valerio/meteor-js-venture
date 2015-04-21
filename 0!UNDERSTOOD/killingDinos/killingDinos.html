@@ -2,8 +2,13 @@
   <title>killingDinos</title>
 </head>
 
+<!--
+NOTA: não é possível ter um template com o nome "body"
+pois está reservado para a tag body
+
+-->
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome {{ user }} to Meteor!</h1>
 	  {{> header }}
 	  {{> main }}
 </body>
@@ -21,12 +26,6 @@
 </template>
 
 <!--  -->
-
-<!--
-NOTA: não é possível ter um template com o nome "body"
-
-	{{> body}}
--->
 
 <template name="main">
 	<section>
