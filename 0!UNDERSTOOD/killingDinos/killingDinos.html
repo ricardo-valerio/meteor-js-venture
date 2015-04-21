@@ -11,6 +11,7 @@ pois está reservado para a tag body
   <h1>Welcome {{ user }} to Meteor!</h1>
 	  {{> header }}
 	  {{> main }}
+	  {{> exemplo }}
 </body>
 
 
@@ -35,14 +36,6 @@ pois está reservado para a tag body
 	</section>
 </template>
 
-<!--  -->
-
-<template name="addDino">
-	<div>
-		<input type="text" id="dinoToAdd" placeholder="Add a Dino...">
-		<input type="button" id="addDino" value="Add!">
-	</div>
-</template>
 
 <!--  -->
 
@@ -68,9 +61,18 @@ pois está reservado para a tag body
 
 <!--  -->
 
+<template name="addDino">
+	<div>
+		<input type="text" id="dinoToAdd" placeholder="Add a Dino...">
+		<input type="button" id="addDino" value="Add!">
+	</div>
+</template>
+
+<!--  -->
+
 <template name="dino">
 	<tr class="{{ selected }}">
-		<td>{{ name }}</td>
+		<td class="dino">{{ name }}</td>
 		<td class="votes">
 			{{#if votes}}
 				{{ votes }}
@@ -88,4 +90,25 @@ pois está reservado para a tag body
 		<input type="button" id="hate" value="Hate!">
 		<input type="button" id="destroy" value="Send the Meteor!">
 	</div>
+</template>
+
+<template name="exemplo">
+	<h2>Olá Exemplo</h2>
+	{{#each outputExemplo}}
+		{{> exemploFilho }}
+	{{/each}}
+</template>
+
+
+<template name="exemploFilho">
+	<tr>
+		<td class="dino">{{ name }}</td>
+		<td class="votes">
+			{{#if votes}}
+				{{ votes }}
+			{{else}}
+				0
+			{{/if}}
+		</td>
+	</tr>
 </template>

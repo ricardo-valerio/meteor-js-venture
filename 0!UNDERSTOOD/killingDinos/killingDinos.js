@@ -8,9 +8,7 @@ if (Meteor.isClient) {
   //-------------------
 
   Template.body.helpers({
-    user : function() {
-       return "Ricardo";
-    }
+    user : "Ricardo"
   });
 
   //-------------------
@@ -24,6 +22,17 @@ if (Meteor.isClient) {
     }
   });
 
+
+ //-------------------
+
+  Template.dinos.helpers({
+    dinosaurs: function() {
+      return Dinos.find({},
+        {sort: [ ["votes", "desc"], ["name", "asc"] ] }
+        );
+    }
+  });
+
   //-------------------
 
   Template.addDino.events({
@@ -34,16 +43,6 @@ if (Meteor.isClient) {
       Dinos.insert({ name: dinoToAddInputValue.val() });
       // limpar a input text
       dinoToAddInputValue.val("");
-    }
-  });
-
-  //-------------------
-
-  Template.dinos.helpers({
-    dinosaurs: function() {
-      return Dinos.find({},
-        {sort: [ ["votes", "desc"], ["name", "asc"] ] }
-        );
     }
   });
 
@@ -74,6 +73,14 @@ if (Meteor.isClient) {
       var id = Dinos.findOne({},
         {sort: [ ["votes", "desc"], ["name", "asc"] ] })._id;
       Dinos.remove(id);
+    }
+  });
+
+  Template.exemplo.helpers({
+    outputExemplo : function() {
+      return Dinos.find({},
+        {sort: [ ["votes", "desc"], ["name", "asc"] ] }
+        );
     }
   });
 
