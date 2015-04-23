@@ -1,0 +1,19 @@
+<head>
+  <title>leaderboard</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> players}}
+</body>
+
+<template name="players">
+	<hr>
+	<h3>There a {{numberOfPlayers}} players</h3>
+	<ul>
+		{{#each player}}
+			<li class="jogador" id="{{_id}}">{{name}} - {{score}}</li>
+		{{/each}}
+	</ul>
+	<hr>
+</template>
