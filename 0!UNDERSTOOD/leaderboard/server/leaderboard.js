@@ -1,3 +1,4 @@
+
 // Transmit a selection of data into the ether
   Meteor.publish('thePlayers', function(){
 
