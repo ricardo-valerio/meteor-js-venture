@@ -132,6 +132,7 @@ What this means is that a newly created task actually appears on the screen befo
 
 If the result from the server comes back and is consistent with the simulation on the client, everything remains as is. If the result on the server is different from the result of the simulation on the client, the UI is patched to reflect the actual state of the server.
 
+
 With Meteor methods and latency compensation, you get the best of both worlds — the security of server code and no round-trip delay.
 
 */
