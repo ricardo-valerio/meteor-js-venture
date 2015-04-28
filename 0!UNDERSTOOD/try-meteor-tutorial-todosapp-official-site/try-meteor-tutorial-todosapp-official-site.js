@@ -133,12 +133,13 @@ Meteor.methods({
 
     var task = Tasks.findOne(taskId);
 
-    if (task.private && task.owner !== Meteor.userId()) {
+    if (task.owner === Meteor.userId()) {
       // If the task is private, make sure only the owner can delete it
+      Tasks.remove(taskId);
+    } else {
       throw new Meteor.Error("not-authorized");
     }
 
-    Tasks.remove(taskId);
   },
 
   setChecked: function (taskId, setChecked) {
