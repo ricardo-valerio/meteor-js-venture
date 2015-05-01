@@ -1,0 +1,17 @@
+<head>
+  <title>youtube-meteor-for-everyone-tutorials</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> resolutions}}
+</body>
+
+<template name="resolutions">
+	<ul>
+		{{#each resolutions}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+</template>
