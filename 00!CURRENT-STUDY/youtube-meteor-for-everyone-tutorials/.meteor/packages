@@ -6,5 +6,11 @@
 
 meteor-platform
 autopublish
-insecure
 msavin:mongol
+cryptoquick:stylus-multi
+accounts-password
+accounts-ui
+accounts-twitter
+accounts-facebook
+accounts-google
+accounts-github

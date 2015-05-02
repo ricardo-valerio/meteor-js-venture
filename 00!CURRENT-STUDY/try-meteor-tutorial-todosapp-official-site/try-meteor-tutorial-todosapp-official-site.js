@@ -201,6 +201,4 @@ if (Meteor.isServer) {
   Calling Meteor.publish on the server registers a publication named "tasks". When Meteor.subscribe is called on the client with the publication name, the client subscribes to all the data from that publication, which in this case is all of the tasks in the database. To truly see the power of the publish/subscribe model, let's implement a feature that allows users to mark tasks as "private" so that no other users can see them.
   */
 
-
-
 }

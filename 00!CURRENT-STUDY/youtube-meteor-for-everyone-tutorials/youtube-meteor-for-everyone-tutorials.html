@@ -4,12 +4,23 @@
 
 <body>
 	<div class="container">
+		{{> loginButtons}}
+
 		<header>
 			<h1>Monthly Resolutions</h1>
-			<form class="new-resolution">
-				<input type="text" name="title" placeholder="Insert a new resolution">
-				<input type="submit" value="Submit">
-			</form>
+
+			<label class="hide-finished">
+				<input type="checkbox" checked="{{hideFinished}}">
+				Hide Finished Resolutions
+			</label>
+
+			<!-- show input form just if the user is sign in -->
+			{{#if currentUser }}
+				<form class="new-resolution">
+					<input type="text" name="title" placeholder="Insert a new resolution">
+					<input type="submit" value="Submit">
+				</form>
+			{{/if}}
 		</header>
 
   		{{> resolutions}}
