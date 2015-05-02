@@ -2,6 +2,8 @@ Resolutions = new Mongo.Collection("resolutions");
 
 if (Meteor.isClient) {
 
+Meteor.subscribe('resolutions');
+
 	Template.body.events({
 		"submit .new-resolution": function(event) {
 			event.preventDefault();
@@ -42,6 +44,9 @@ if (Meteor.isClient) {
 	  },
 	  hideFinished: function() {
 	  	return Session.get("hideFinished");
+	  },
+	  isOwner: function() {
+	  	return this.owner === Meteor.userId();
 	  }
 	});
 
@@ -52,7 +57,10 @@ if (Meteor.isClient) {
 		},
 		"click .toggle-checked": function() {
 			Meteor.call("checkResolution", this._id, !this.checked);
-		}
+		},
+        "click .toggle-private": function() {
+            Meteor.call("togglePrivate", this._id, !this.private);
+        }
 	});
 
 
@@ -66,12 +74,22 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
+
+  Meteor.publish('resolutions', function () {
+  	return Resolutions.find({
+        $or :[
+            { private: { $ne: true} },
+            { owner  : this.userId }
+        ]
+    });
+  });
 }
 
 
 Meteor.methods({
 	addResolution: function (title) {
 		Resolutions.insert({
+				owner 	  : Meteor.userId(),
 				title     : title,
 				createdAt : new Date()
 			});
@@ -85,5 +103,18 @@ Meteor.methods({
 	},
 	deleteResolution: function(id) {
 		Resolutions.remove(id);
-	}
+	},
+    togglePrivate: function(id, private) {
+        var resolution = Resolutions.findOne(id);
+
+        if(resolution.owner !== Meteor.userId()){
+            throw new Meteor.Error("not-authorized");
+        }
+
+        Resolutions.update(id, {
+            $set: {
+                private: private
+            }
+        });
+    }
 });

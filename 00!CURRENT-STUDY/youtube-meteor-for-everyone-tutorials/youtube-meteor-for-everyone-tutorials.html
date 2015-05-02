@@ -33,7 +33,16 @@
 			<li class="{{#if checked}}checked{{/if}}">
 				<label>
 					<input type="checkbox" checked="{{checked}}" class="toggle-checked">
-					<span class="text">{{title}}</span>
+					{{#if isOwner}}
+					  <button class="toggle-private">
+					  	{{#if private}}
+					  	  Private
+					  	{{else}}
+					  	  Public
+					  	{{/if}}
+					  </button>
+					{{/if}}
+					<span class="text"> <em>said:</em> {{title}}</span>
 				</label>
 				<button class="delete">Remove</button>
 			</li>
