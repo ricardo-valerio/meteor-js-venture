@@ -32,8 +32,8 @@
 		{{#each resolutions}}
 			<li class="{{#if checked}}checked{{/if}}">
 				<label>
-					<input type="checkbox" checked="{{checked}}" class="toggle-checked">
 					{{#if isOwner}}
+						<input type="checkbox" checked="{{checked}}" class="toggle-checked">
 					  <button class="toggle-private">
 					  	{{#if private}}
 					  	  Private
@@ -44,7 +44,9 @@
 					{{/if}}
 					<span class="text"> <em>said:</em> {{title}}</span>
 				</label>
-				<button class="delete">Remove</button>
+				{{#if isOwner}}
+					<button class="delete">Remove</button>
+				{{/if}}
 			</li>
 		{{/each}}
 	</ul>
