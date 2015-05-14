@@ -1,0 +1,127 @@
+@button-height: 45px;
+
+div.login, div.reset-password, div.recover-password {
+  width: 100%;
+  padding-top: 240px;
+  height: auto;
+  margin-bottom: 45px;
+  @media @mobile {
+    padding-top: 200px;
+  }
+}
+
+input.error, input.required {
+  border-bottom: 5px solid red;
+}
+
+@media @not-mobile{
+  div.login-left {
+    position: relative;
+    float: left;
+    width: 45%;
+  }
+
+  div.login-right {
+    position: relative;
+    float: left;
+    width: 45%;
+  }
+}
+
+form {
+  span.error {
+    float: right;
+    color: red;
+  }
+
+  div.error {
+    color: red;
+  }
+
+  input.error {
+    border-bottom: 5px solid red;
+  }
+}
+
+form#login-form {
+	width: 350px;
+	font-size: 15px;
+	font-family: Muli;
+	margin: auto;
+}
+
+h1.login-header {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 23px;
+}
+
+form#signup-form {
+	width: 350px;
+	margin-left: 75px;
+	margin-top: 55px;
+	font-family: Muli;
+}
+
+a.green {
+  color: @action-color;
+}
+
+.login-button, .signup-button, .save-profile-button, .reset-button {
+	margin-top: 20px;
+	width: 100px;
+    background-color: @action-color;
+    color: @white-color;
+    height: @button-height;
+
+    &:hover {
+    	background-color: @dark-color;
+    }
+}
+
+a.recover-password-link {
+  margin-left: 100px;
+
+  &:hover {
+    color: @action-color;
+  }
+}
+
+div.log-in-error {
+	margin-top: 10px;
+}
+
+@vertical-center: 90px;
+
+div.divider {
+  @font-size: 20px;
+  position: relative;
+  float: left;
+  width: 10%;
+  font-size: @font-size;
+  text-align: center;
+  margin-top: @vertical-center - @font-size/2;
+
+  @media @mobile {
+    width: 100%;
+    margin-top: @font-size;
+    margin-bottom: @font-size;
+    visibility: hidden;
+  }
+}
+
+div.sign-up-options {
+  margin: auto;
+  width: 350px;
+  a{
+    background-color: @action-color;
+    height: @button-height;
+    display: block;
+    color: @white-color;
+    text-align: center;
+    line-height: @button-height;
+    &:hover {
+      background-color: @dark-color;
+    }
+  }
+}

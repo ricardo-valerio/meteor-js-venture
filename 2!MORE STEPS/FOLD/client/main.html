@@ -1,0 +1,714 @@
+<head>
+  <title>FOLD</title>
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/fold/image/upload/v1/static/FOLD-apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/fold/image/upload/v1/static/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+  <meta name="description" content="A reading, authoring, and publishing platform allowing storytellers to structure and contextualize stories." />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@readFOLD">
+  <meta name="twitter:title" content="FOLD">
+  <meta name="twitter:description" content="Reading, authoring, and publishing platform allowing storytellers to structure and contextualize stories.">
+  <meta name="twitter:creator" content="@readFOLD">
+  <meta name="twitter:image" content="https://res.cloudinary.com/fold/image/upload/v1/static/FOLD_twitter_image.png">
+
+  <!-- Open Graph data -->
+  <meta name="fragment" content="!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://readfold.com">
+  <meta property="og:image" content="http://res.cloudinary.com/fold/image/upload/v1/static/FOLD_fb_image.png">
+  <meta property="og:image:secure_url" content="https://res.cloudinary.com/fold/image/upload/v1/static/FOLD_fb_image.png">
+  <meta property="og:title" content="FOLD">
+  <meta property="og:description" content="Reading, authoring, and publishing platform allowing storytellers to structure and contextualize stories.">
+</head>
+
+
+<!--
+  Templates used in reading, creating, and editing
+-->
+
+<template name="story_header">
+  <div class="title-overlay {{#unless read}}write{{/unless}}">
+    {{#with headerImageVideoObject}}
+      {{> looping_video}}
+    {{else}}
+      <img class="header-overlay-image" src={{headerImageUrl}}>
+    {{/with}}
+    <div id="banner-overlay">
+    </div>
+    <div class="title-author">
+      {{> story_title }}
+      <div class="author">
+        <a href="{{profileUrl}}">
+          By <span>{{authorName}}</span>
+        </a>
+      </div>
+    </div>
+    <div class="logo visible">
+      {{#linkTo route="home"}}
+        <img src="{{c.url 'static/FOLD_LOGO.svg'}}">
+      {{/linkTo}}
+    </div>
+
+    {{#unless isPhone}}
+      {{#if headerImageAttribution}}
+        <div class="attribution {{#unless pastHeader}}shown{{/unless}}">
+        Header Image Source: {{headerImageAttribution}}
+        </div>
+      {{/if}}
+    {{/unless}}
+  </div>
+  {{> signin_overlay}}
+</template>
+
+<template name="story_title">
+  <div>
+    {{{storyTitleDiv}}}
+  </div>
+</template>
+
+<template name="story">
+    <!-- Mesh Background Overlay -->
+    <!-- <div id="overlay"></div> -->
+    <article class="content">
+        <div class="vertical-narrative"
+             style="width: {{cardWidth}}px; left: {{verticalLeft}}px;">
+            {{> vertical_narrative}}
+
+            {{> story_footer}}
+        </div>
+            <div class="horizontal-context">
+                {{> horizontal_context}}
+            </div>
+    </article>
+
+
+    {{#if pastHeader}}
+        {{#if showMinimap}}
+          {{> minimap}}
+        {{/if}}
+      {{#if showMobileMinimap}}
+          {{> mobile_minimap}}
+        {{/if}}
+        {{#if metaviewOpen}}
+          {{> metaview}}
+        {{/if}}
+        {{#if horizontalExists}}
+            {{#unless addingContext}}
+                <div class="browser-offset">
+                    {{> story_browser}}
+                </div>
+            {{/unless}}
+        {{/if}}
+    {{/if}}
+</template>
+
+
+<template name="story_footer">
+  <footer class="story-footer">
+    {{#unless isPhone}}
+      {{#if read}}
+        <div class="write-prompt vertical-narrative-section">
+          <p>Anyone can write a story on FOLD!</p>
+          {{> create_story}}
+        </div>
+      {{/if}}
+    {{/unless}}
+  </footer>
+</template>
+
+<template name="vertical_narrative">
+  {{#each verticalSectionsWithIndex}}
+    {{#unless read}}
+      {{> add_vertical_minimized}}
+    {{/unless}}
+    {{> vertical_section_block}}
+  {{/each}}
+  {{#unless read}}
+    {{> add_vertical_unminimized}}
+  {{/unless}}
+
+</template>
+
+<template name="vertical_section_block">
+  <div class="narrative-section vertical-narrative-section {{#if verticalSelected}}selected{{/if}} {{#if read}}read{{/if}} {{#if hasTitle}}has-title{{/if}}" data-vertical-index="{{index}}" data-vertical-id="{{_id}}">
+    <section>
+      {{#unless read}}
+        {{#if verticalSelected}}
+          <div class="narrative-babyburger-and-menu">
+            <button class="narrative-babyburger {{#if babyburgerOpen}}active{{/if}}">
+              {{> babyburger_icon}}
+            </button>
+            {{#if babyburgerOpen}}
+              {{> vertical_edit_menu}}
+            {{/if}}
+          </div>
+        {{/if}}
+      {{/unless}}
+      {{#if hasTitle}}
+        {{{titleDiv}}}
+      {{/if}}
+      {{{contentDiv}}}
+      <div class="button">
+      </div>
+    </section>
+  </div>
+</template>
+
+
+<template name="horizontal_context">
+  {{#unless read}}
+    {{#if verticalExists}}
+      {{#if currentYId}}
+        {{> add_horizontal}}
+      {{/if}}
+      {{#each horizontalSections}}
+        {{#if horizontalShown}}
+          {{> context_anchor_menu}}
+        {{/if}}
+      {{/each}}
+      <div style="display: {{#if addingContext}}inherit{{else}}none{{/if}}">
+        {{> create_horizontal_section_block}}
+      </div>
+    {{/if}}
+  {{/unless}}
+  {{#each horizontalSections}}
+    {{#if horizontalShown}}
+    {{!-- <div class="inline-block {{#unless horizontalShown}}hide{{/unless}}"> --}}
+      {{#each data}}
+        {{> horizontal_section_block}}
+      {{/each}}
+      {{#unless read}}
+        {{add_horizontal}}
+      {{/unless}}
+    {{!-- </div> --}}
+    {{/if}}
+
+  {{/each}}
+</template>
+
+
+<template name="horizontal_section_block">
+  <div
+      class="narrative-section horizontal-narrative-section {{#if type}}{{type}}-card{{/if}} {{#if selected}}selected{{/if}} {{#if editingThisContext}}editing{{/if}}" data-index="{{index}}" style="width: {{cardWidth}}px; left: {{left}}px;">
+<section>
+  <!--    <div id="index">
+      {{index}}
+    </div> -->
+    {{#if isPhone}}
+      {{#if selected}}
+        <button class="mobile-context-back-button">
+          {{> mobile_back_icon }}
+        </button>
+      {{/if}}
+    {{/if}}
+    {{#if type}}
+      {{#if text}}
+        {{#if editingThisContext}}
+          {{> create_text_section}}
+        {{else}}
+          {{> display_text_section}}
+        {{/if}}
+      {{/if}}
+      {{#if image}}
+        {{#if editingThisContext}}
+          {{> create_image_section}}
+        {{else}}
+          {{> display_image_section}}
+        {{/if}}
+      {{/if}}
+      {{#if gif}}
+        {{#if editingThisContext}}
+          {{> create_gif_section}}
+        {{else}}
+          {{> display_image_section}}
+        {{/if}}
+      {{/if}}
+      {{#if map}}
+        {{#if editingThisContext}}
+          {{> create_map_section}}
+        {{else}}
+          {{> display_map_section}}
+        {{/if}}
+      {{/if}}
+      {{#if audio}}
+        {{#if editingThisContext}}
+          {{> create_audio_section}}
+        {{else}}
+          {{> display_audio_section}}
+        {{/if}}
+      {{/if}}
+      {{#if video}}
+        {{#if editingThisContext}}
+          {{> create_video_section}}
+        {{else}}
+          {{> display_video_section}}
+        {{/if}}
+      {{/if}}
+      {{#if twitter}}
+        {{#if editingThisContext}}
+          {{> create_twitter_section}}
+        {{else}}
+          {{> display_twitter_section}}
+        {{/if}}
+      {{/if}}
+      {{#if viz}}
+        {{#if editingThisContext}}
+          {{> create_viz_section}}
+        {{else}}
+          {{> display_viz_section}}
+        {{/if}}
+      {{/if}}
+      {{#if link}}
+        {{#if editingThisContext}}
+          {{> create_link_section}}
+        {{else}}
+          {{> display_link_section}}
+        {{/if}}
+      {{/if}}
+      {{else}}
+        {{> display_broken_section}}
+      {{/if}}
+      {{#if read}}
+        {{#unless isPhone}}
+          {{> remix_bar}}
+        {{/unless}}
+      {{/if}}
+      </section>
+    </div>
+  </template>
+
+<template name="remix_bar">
+    <div class="remix-bar">
+        <!--This card has been shared 6 times-->
+        <span class="remix-button">
+            {{> remix_icon_square}}
+        </span>
+    </div>
+</template>
+
+<!-- Display Templates -->
+<template name="display_text_section">
+  <div class="text-section" dir="auto">
+    {{{textContent}}}
+  </div>
+    {{#unless read}}
+      {{> horizontal_section_edit_delete}}
+    {{/unless}}
+</template>
+
+<template name="display_image_section">
+  <div class="image-section {{#unless read}}always-show-caption{{/unless}}">
+    {{#if showVideo}}
+      {{> looping_video}}
+    {{else}}
+      <img src="{{url}}" />
+      {{#if isGiphy}}<img class="giphy-logo" src="{{c.url 'static/giphy_logo.png'}}" />{{/if}}
+      {{#if isFlickr}}
+        <div class="attribution">
+          <i class="fa fa-flickr"></i>
+          {{#if ownerName}}<a href="//flickr.com/{{ownerName}}" target="_blank">{{ownerName}}</a><span class="separator">·</span>{{/if}}<a href="{{webUrl}}" target="_blank">{{#if uploadDate}}{{uploadDate}}{{else}}source{{/if}}</a>
+        </div>
+      {{/if}}
+    {{/if}}
+    {{{textContent}}}
+  </div>
+  {{#unless read}}
+    {{> horizontal_section_edit_delete}}
+  {{/unless}}
+</template>
+
+<template name="looping_video">
+  <div class="looping-video">
+    <video autoplay loop muted="muted"
+           poster="{{previewUrl}}">
+
+      <source type="video/mp4"
+              src="{{mp4Url}}">
+
+      <source type="video/webm"
+              src="{{webMUrl}}">
+      Your browser does not support the HTML5 video tag.
+    </video>
+  </div>
+</template>
+
+<template name="display_map_section">
+  <div class="map-section">
+    {{#if selected}}
+      <div class="active-display">
+        <iframe width="100%" height="300" frameborder="0" style="border:0" src="{{url}}"></iframe>
+      </div>
+    {{/if}}
+    <div class="preview">
+      <img src="{{previewUrl}}"/>
+    </div>
+  </div>
+  {{#unless read}}
+    {{> horizontal_section_edit_delete}}
+  {{/unless}}
+</template>
+
+<template name="display_viz_section">
+  <div class="viz-section">
+    {{#if selected}}
+      <iframe width="100%" height="315" src="{{url}}" frameborder="0" ></iframe>
+    {{else}}
+      <div class="icon-only-preview">
+        {{> viz_icon}}
+      </div>
+    {{/if}}
+  </div>
+  {{#unless read}}
+    {{> horizontal_section_edit_delete}}
+  {{/unless}}
+</template>
+
+
+
+
+<template name="display_audio_section">
+  <div class="audio-section">
+    {{#if selected}}
+      <div class="active-display">
+        <iframe width="100%" height="300" frameborder="0" style="border:0" src="{{url}}" allowfullscreen></iframe>
+      </div>
+    {{/if}}
+    <div class="preview">
+      <img src="{{previewUrl}}"/>
+    </div>
+  </div>
+  {{#unless read}}
+      {{> horizontal_section_edit_delete}}
+    {{/unless}}
+</template>
+
+<template name="display_video_section">
+  <div class="video-section">
+    {{#if selected}}
+      <div class="active-display">
+        <iframe width="100%" height="300" frameborder="0" style="border:0" src="{{url}}" allowfullscreen></iframe>
+      </div>
+    {{/if}}
+    <div class="preview">
+      <img src="{{previewUrl}}"/>
+    </div>
+    {{#if description}}
+        <div class="description-overlay" dir="auto">
+          {{! description}}
+        </div>
+      {{/if}}
+  </div>
+  {{#unless read}}
+      {{> horizontal_section_edit_delete}}
+    {{/unless}}
+</template>
+
+
+<template name="display_link_section">
+  <div class="link-section {{#if isFocused}}focused{{/if}}">
+    <a href="{{url}}" target="_blank">
+      <div class="top">
+        {{#if thumbnailUrl}}
+          {{#if imageOnLeft}}
+            <img class="thumbnail left" src="{{thumbnailUrl}}" />
+          {{else}}
+            <div class="thumbnail top" style='background-image: url("{{thumbnailUrl}}")'></div>
+          {{/if}}
+          <div class="link-title {{#if imageOnLeft}}image-on-left{{else}}image-on-top{{/if}}">{{title}}</div>
+        {{/if}}
+      </div>
+    </a>
+    <div class="link-description {{#if imageOnLeft}}image-on-left{{else}}image-on-top{{/if}}">{{linkDescription}}</div>
+    <div class="bottom">
+      <a class="read-more" href="{{url}}" target="_blank">Read more on {{providerTruncatedUrl}}</a>
+    </div>
+  </div>
+  {{#unless read}}
+    {{> horizontal_section_edit_delete}}
+  {{/unless}}
+</template>
+
+<template name="display_twitter_section">
+  <div class="twitter-section">
+      <div class="active-display">
+      {{#if imgUrl}}
+        <div class='image-section'>
+          <img src='{{imgUrl}}'>
+        </div>
+        <button class="show-image"></button>
+      {{/if}}
+        <div class="twitter-text-section {{#if selected}} selected {{/if}} {{#if imgUrl}}image{{/if}} ">
+          <div class="flag {{#if selected}} selected {{/if}} {{#if imgUrl}}image{{/if}}"></div>
+          <div class='tweet-card'>
+            <div class='title'>
+              <div class='prof_pic'>
+                <a href="{{user_url}}" target="_blank">
+                  <img src="{{userpic}}"> 
+                </a>
+              </div>
+              <div class='username'>
+                <div>{{username}} 
+                </div>
+                <div class="screenname"><a href="{{user_url}}" target="_blank">@{{screenname}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="tweet" dir="auto">{{{formattedTweet}}}
+            </div>
+            <div class="info">
+              <span>
+                <a href="{{twitter_url}}" target="_blank"><i class="fa fa-twitter"></i>
+                </a>
+                {{#if retweetUser}}
+                  <a href="{{retweet_url}}" target="_blank">
+                  <i class="fa fa-retweet"></i>@{{retweetUser}}</a>
+                {{/if}}
+                <a href="{{tweet_url}}" target="_blank">{{date}}</a>
+              </span>
+            </div>
+            <div class="actions">
+              <span>
+                <a href="{{reply_action}}" target="_blank">
+                  <i class="fa fa-reply"></i>
+                </a>
+                <a href="{{retweet_action}}" target="_blank">
+                  <i class="fa fa-retweet"></i>
+                </a>
+                <a href="{{favorite_action}}" target="_blank">
+                  <i class="fa fa-star"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  {{#unless read}}
+      {{> horizontal_section_edit_delete}}
+    {{/unless}}
+</template>
+
+
+<template name="display_broken_section">
+  <div class="broken-section">
+  </div>
+  {{#unless read}}
+    {{> horizontal_section_edit_delete}}
+  {{/unless}}
+</template>
+
+
+<template name="story_browser">
+  <div class="story-browser">
+    {{#if showLeftArrow}}
+      <div class="left">
+        {{> browse_arrow_left}}
+      </div>
+    {{/if}}
+    {{#if showRightArrow}}
+      <div class="right">
+        {{> browse_arrow_right}}
+      </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="metaview">
+  <div class="metaview">
+    <ul class="cards sortable-rows">
+      {{#each verticalSectionsWithIndex}}
+        <li class="row" data-id="{{_id}}">
+          <div class="vertical-block">
+            {{#if hasTitle}}
+              <h4>{{title}}</h4>
+            {{/if}}
+            <p>{{textContent}}</p>
+          </div>
+          <ul class="horizontal-section sortable-blocks ui-state-default">
+            {{#each horizontalSections}}
+              <li class="horizontal-block ui-state-default" data-id="{{_id}}">
+                {{> metaview_context_block}}
+              </li>
+            {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+    </ul>
+    <button class="close button">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+</template>
+
+<template name="metaview_context_block">
+  {{#if video}}
+    <img src="{{thumbnailUrl}}"/>
+  {{/if}}
+  {{#if image}}
+    <img src="{{thumbnailUrl}}" />
+  {{/if}}
+  {{#if gif}}
+    <img src="{{thumbnailUrl}}" />
+  {{/if}}
+  {{#if map}}
+    <img src="{{previewUrl}}"/>
+  {{/if}}
+  {{#if twitter}}
+    {{> twitter_icon}}
+  {{/if}}
+  {{#if audio}}
+    {{> audio_icon}}
+  {{/if}}
+  {{#if viz}}
+    {{> viz_icon}}
+  {{/if}}
+  {{#if text}}
+    {{content}}
+  {{/if}}
+
+
+  {{#if link}}
+    {{#if thumbnailUrl}}
+     <img src="{{thumbnailUrl}}" />
+    {{else}}
+      {{title}}
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name="minimap">
+  {{#if minimapLargeEnough}}
+  <div class="minimap hoverable">
+    <div class="expand"><i class="fa fa-expand"></i></div>
+    {{#each horizontalSectionsMap}}
+    <div class="section {{#if selectedY}}selected-section{{/if}}" style="{{#if responsive}}height: {{sectionHeight}}px; margin-bottom: {{sectionMargin}}px;{{/if}}">
+      <div class="vertical block {{#if selectedY}}selected-block{{/if}}" style="{{#if responsive}}width: {{verticalCardWidth}}px;{{/if}}">
+      </div>
+      {{#each horizontal}}
+          <div class="horizontal block {{#if selectedX}}selected-block{{/if}}" style="{{#if responsive}}width: {{horizontalCardWidth}}px;{{/if}}">
+          </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</template>
+
+<template name="mobile_minimap">
+  <div class="mobile-minimap-vertical" style="width: {{mobileMargin}}px; height: {{verticalHeight}}px;">
+    <ol class="mobile-minimap-vertical-table">
+      {{#each verticalSelectedArray}}
+        <li class="vertical-marker-row">
+          <div class="vertical-marker-cell">
+            <div class="vertical-marker {{#if selected}}selected{{/if}}"></div>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+
+  <div class="mobile-minimap-horizontal" style="width: {{horizontalWidth}}px; height: {{mobileMargin}}px;">
+    <div class="mobile-minimap-horizontal-table">
+      <ol class="horizontal-marker-row">
+        {{#each horizontalSelectedArray}}
+          <li class="horizontal-marker-cell">
+            <div class="horizontal-marker {{#if selected}}selected{{/if}}"></div>
+          </li>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+
+  <div class="mobile-minimap-corner" style="width: {{mobileMargin}}px; height: {{mobileMargin}}px;"></div>
+</template>
+
+
+<template name="type_specific_icon">
+  {{#if twitter}}
+    {{> twitter_icon }}
+  {{/if}}
+  {{#if video}}
+    {{> video_icon }}
+  {{/if}}
+  {{#if map}}
+    {{> map_icon }}
+  {{/if}}
+  {{#if image}}
+    {{> image_icon }}
+  {{/if}}
+  {{#if viz}}
+    {{> viz_icon }}
+  {{/if}}
+  {{#if gif}}
+    {{> gif_icon }}
+  {{/if}}
+  {{#if audio}}
+    {{> audio_icon }}
+  {{/if}}
+  {{#if text}}
+    {{> text_icon }}
+  {{/if}}
+  {{#if link}}
+    {{> link_icon }}
+  {{/if}}
+  {{#if remix}}
+    {{> remix_icon }}
+  {{/if}}
+</template>
+
+<template name="share_button">
+  {{#if tooltipShown}}
+  <div class="sharing-tooltip">
+    <ul>
+      <li class="share-facebook">
+        <i class="fa fa-facebook"></i>
+        <span>Share on Facebook</span>
+      </li>
+      <li class="share-twitter">
+        <i class="fa fa-twitter"></i>
+        <span>Share on Twitter</span>
+      </li>
+    </ul>
+  </div>
+  {{/if}}
+  <div class="share-button {{#if tooltipShown}}active{{/if}}">
+    <button type='button' class='share'>{{> share_icon }}</button>
+  </div>
+</template>
+
+<template name="favorite_button">
+    <div class="favorite-button">
+        {{#if userFavorited}}
+            <button type='button' class='unfavorite'>{{> favorite_icon }}</button>
+        {{else}}
+            <button type='button' class='favorite'>{{> favorite_icon }}</button>
+        {{/if}}
+        {{favoritedTotal}}
+    </div>
+</template>
+
+<template name="editors_pick_button">
+    <div class="editors-pick-button">
+        {{#if editorsPick}}
+            <button type='button' class='unpick'>{{> favorite_icon }}</button>
+        {{else}}
+            <button type='button' class='pick'>{{> favorite_icon }}</button>
+        {{/if}}
+    </div>
+</template>
+
+<template name="stats">
+  {{> serverFacts}}
+</template>
+
+<template name="loading_page">
+  <div class="loading-page" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
+    <div class="centered-loading-icon">
+      Loading...
+      <!--{{> loading_icon}}-->
+    </div>
+  </div>
+</template>
