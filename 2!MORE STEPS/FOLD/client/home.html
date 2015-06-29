@@ -1,0 +1,341 @@
+
+
+<template name="top_banner">
+  <div class="home-top {{#if border}}{{border}}{{/if}}">
+    <div class="left">
+      <div class="logo-title">
+        {{#linkTo route="home"}}
+        <img class="logo" src="{{c.url 'static/FOLD_LOGO.svg'}}">
+        {{/linkTo}}
+        {{#linkTo route="home"}}
+        <div class="title">
+          <img src="{{c.url 'static/FOLD_TITLE.svg'}}">
+        </div>
+        {{/linkTo}}
+      </div>
+      {{#if showFilters}}
+      <div class="filter">
+        {{> filters}}
+        <!--{{> filters}} in {{> categories}}-->
+      </div>
+      {{/if}}
+    </div>
+    {{> banner_buttons}}
+    {{> signin_overlay}}
+  </div>
+</template>
+
+<template name="signin_overlay">
+  {{#if signingIn}}
+    <div class="signin-overlay" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
+      <button class="close">✕</button>
+      <div class="signin-buttons">
+        <ol class="user-menu">
+          <li>
+            <button class="twitter-signin">Log in with Twitter</button>
+          </li>
+          <li>
+            <button class="email-signin">Log in with email</button>
+          </li>
+        </ol>
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+<template name="top_banner_simple_no_links">
+  <div class="home-top remix-color not-sticky">
+    <div class="left">
+      <div class="logo-title">
+          <img class="logo" src="{{c.url 'static/FOLD_LOGO.svg'}}">
+          <div class="title">
+            <img src="{{c.url 'static/FOLD_TITLE.svg'}}">
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="top_banner_simple">
+  <div class="home-top remix-color">
+    <div class="left">
+      <div class="logo-title">
+          {{#linkTo route="home"}}
+          <img class="logo" src="{{c.url 'static/FOLD_LOGO.svg'}}">
+          {{/linkTo}}
+          {{#linkTo route="home"}}
+          <div class="title">
+            <img src="{{c.url 'static/FOLD_TITLE.svg'}}">
+          </div>
+          {{/linkTo}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="banner_buttons">
+  <div class="right">
+    <div class="action-items">
+      <ol>
+        {{#unless isPhone}}
+          <li class="create-story">
+            {{> create_story}}
+          </li>
+        {{/unless}}
+        {{> login_buttons }}
+
+        {{#unless isPhone}}
+          <li class="about-fold">
+            {{#linkTo route="about"}}
+            <button>
+                <span class="text">About FOLD</span>
+
+            </button>
+            {{/linkTo}}
+          </li>
+        {{/unless}}
+      </ol>
+    </div>
+
+  </div>
+</template>
+<template name="login_buttons">
+  <li class="user-action">
+
+    {{#if currentUser}}
+      <a href="/profile/{{currentUser.displayUsername}}">
+
+        <button>
+            {{#if profileImage currentUser}}
+              <img class="profile-picture" src="{{profileImage currentUser}}"/>
+            {{/if}}
+          <span class="text">{{currentUser.profile.name}}</span>
+        </button>
+      </a>
+      {{#if showUserInfo}}
+        <ol class="user-menu">
+          <li>
+            {{#linkTo route="my_story_profile"}}<button>My stories</button>{{/linkTo}}
+          </li>
+          <li>
+            <button class="logout">Logout</button>
+          </li>
+        </ol>
+      {{/if}}
+    {{else}}
+      <button class="signin"> Log in / Sign up</button>
+    {{/if}}
+  </li>
+</template>
+
+<template name="create_story">
+  <button class="create-story" href="javascript:void(0);">
+    <span class="text">Make a Story</span>
+  </button>
+</template>
+
+<template name="home">
+  {{> top_banner showFilters="true" border="active-border"}}
+  <div class="stories"> 
+    <section>
+      <div class="story-container">
+        {{> all_stories}}
+      </div>
+    </section>
+  </div>
+</template>
+
+<template name="filters">
+  <span class="filters">
+    <select data-custom-id="custom" data-custom-class="custom" value="{{initialFilterValue}}">
+      {{#each filters}}
+        <option value="{{this}}" {{conditionallySelected}}>
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </span>
+</template>
+
+<template name="categories">
+  <span class="categories">
+    <select>
+      {{#each categories}}
+        <option class="category {{#if selected}}selected{{/if}}" data-category="{{this}}">
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </span>
+</template>
+
+<template name="all_stories">
+  {{#if showNewestStories}}
+    {{#each newestStories}}
+      {{> story_preview }}
+    {{/each}}
+  {{/if}}
+  {{#if showCuratedStories}}
+    {{#each curatedStories}}
+      {{> story_preview }}
+    {{/each}}
+  {{/if}}
+  {{#if showTrendingStories}}
+    {{#each trendingStories}}
+      {{> story_preview }}
+    {{/each}}
+  {{/if}}
+  {{#if showStarredStories}}
+    {{#each starredStories}}
+      {{> story_preview }}
+    {{/each}}
+  {{/if}}
+  {{#if storiesLoading}}
+  <div class="loading-container">
+    {{> loading_icon}}
+  </div>
+  {{/if}}
+</template>
+
+<template name="story_preview">
+  {{#with story}}
+    <div class="story" data-story-id="{{_id}}">
+      {{> _story_preview_content}}
+      {{> edit_or_read_bar}}
+    </div>
+  {{/with}}
+</template>
+
+<template name="_story_preview_content">
+  {{#with story}}
+    <div class="context-count">
+      {{#if contextCountOfType 'video'}}
+        <div class="context-count-icon">
+          {{> video_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'video'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'image'}}
+        <div class="context-count-icon">
+          {{> image_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'image'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'gif'}}
+        <div class="context-count-icon">
+          {{> gif_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'gif'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'map'}}
+        <div class="context-count-icon">
+          {{> map_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'map'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'twitter'}}
+        <div class="context-count-icon">
+          {{> twitter_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'twitter'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'audio'}}
+        <div class="context-count-icon">
+          {{> audio_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'audio'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'viz'}}
+        <div class="context-count-icon">
+          {{> viz_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'viz'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'text'}}
+        <div class="context-count-icon">
+          {{> text_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'text'}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if contextCountOfType 'link'}}
+        <div class="context-count-icon">
+          {{> link_icon }}
+          <div class="context-count-text">
+            {{contextCountOfType 'link'}}
+          </div>
+        </div>
+      {{/if}}
+      <!--TODO - add remix check-->
+    </div>
+
+    {{#linkTo route=linkRoute data=this}}
+      <div class="overlay-image">
+        {{#with headerImageVideoObject 'small'}}
+          {{> looping_video}}
+        {{else}}
+          <img src="{{headerImageUrl 'small'}}" />
+        {{/with}}
+      </div>
+    {{/linkTo}}
+
+    {{#linkTo route=linkRoute data=this}}
+      <div class="story-card">
+      </div>
+    {{/linkTo}}
+
+    {{#linkTo route=linkRoute data=this}}
+      <div class="headline">
+        {{title}}
+      </div>
+    {{/linkTo}}
+
+    <div class="byline">
+      <a class="author-profile-link" href="{{profileUrl}}">
+        <div class="pull-left">
+          <div class="author-image">
+            {{#if profileImage author}}
+             <img class="profile-picture" src="{{profileImage author}}"/>
+            {{else}}
+              <img class="profile-picture" src="{{c.url 'static/placeholder_image.png'}}"/>
+            {{/if}}
+          </div>
+
+          <div class="author-name-date">
+            <div class="author-name">By <span>{{authorName}}</span></div>
+            <div class="publish-date">{{lastPublishDate}}</div>
+          </div>
+        </div>
+      </a>
+
+      <div class="pull-right">
+        {{> favorite_button }}
+        {{#if currentUser.admin}}
+          {{> editors_pick_button }}
+        {{/if}}
+      </div>
+    </div>
+  {{/with}}
+
+</template>
+
+<template name="edit_or_read_bar">
+  <div class="edit-or-read">
+
+  </div>
+</template>
