@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="/5cdb73159f700138333d1b04069feefec11757a2.css">
+
+  <script type="text/javascript">
+    __meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%401.1.0.2%22%2C%22ROOT_URL%22%3A%22http%3A%2F%2F192.168.1.3%3A3000%2F%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%22%2C%22DDP_DEFAULT_CONNECTION_URL%22%3A%22http%3A%2F%2F192.168.1.3%3A3000%22%2C%22autoupdateVersionCordova%22%3A%22c72ac377c1831ed5b7e29f29d8b8d30c842a6c6e%22%2C%22appId%22%3A%221nu85b7ile2ye1590zs8%22%7D"));
+
+    if (/Android/i.test(navigator.userAgent)) {
+      // When Android app is emulated, it cannot connect to localhost,
+      // instead it should connect to 10.0.2.2
+      // (unless we're using an http proxy; then it works!)
+      if (!__meteor_runtime_config__.httpProxyPort) {
+        __meteor_runtime_config__.ROOT_URL = (__meteor_runtime_config__.ROOT_URL || '').replace(/localhost/i, '10.0.2.2');
+        __meteor_runtime_config__.DDP_DEFAULT_CONNECTION_URL = (__meteor_runtime_config__.DDP_DEFAULT_CONNECTION_URL || '').replace(/localhost/i, '10.0.2.2');
+      }
+    }
+  </script>
+
+  <script type="text/javascript" src="/cordova.js"></script>
+  <script type="text/javascript" src="/packages/underscore.js?0a80a8623e1b40b5df5a05582f288ddd586eaa18"></script>
+  <script type="text/javascript" src="/packages/meteor.js?4dc9757b244a30bdf37a732ac4db4026ce56fb6b"></script>
+  <script type="text/javascript" src="/packages/json.js?e22856eae714c681199eabc5c0710b904b125554"></script>
+  <script type="text/javascript" src="/packages/base64.js?1a63019243b73298e2964e6d4680f25bca657726"></script>
+  <script type="text/javascript" src="/packages/ejson.js?71047b64b5196348bdbe5fd5eea9ac97a5a9eb14"></script>
+  <script type="text/javascript" src="/packages/logging.js?efbe67566211d95b5cc8e39ab2faae771509b7ce"></script>
+  <script type="text/javascript" src="/packages/reload.js?da8974b7231dd8c0caccb5f322dcf97329d486d1"></script>
+  <script type="text/javascript" src="/packages/tracker.js?6d0890939291d9780f7e2607ee3af3e7f98a3d9c"></script>
+  <script type="text/javascript" src="/packages/random.js?fe7b46080c91ce482acf6fc326afbc5b176f0502"></script>
+  <script type="text/javascript" src="/packages/retry.js?1f1dd2c35d300110fdaba51ce4473583bc3bf031"></script>
+  <script type="text/javascript" src="/packages/check.js?ac81167b8513b85b926c167bba423981b0c4cf9c"></script>
+  <script type="text/javascript" src="/packages/id-map.js?9ea6eaae8d74693ce2505a858d9a5e60cf191298"></script>
+  <script type="text/javascript" src="/packages/ordered-dict.js?bf8af2f26c8d96bf8b2e6b407d3ed69f23c2cd37"></script>
+  <script type="text/javascript" src="/packages/geojson-utils.js?81b79d5cf96d00b4b7a28987debcffb665c17526"></script>
+  <script type="text/javascript" src="/packages/minimongo.js?af9eb9d7447544ca9b839a3dcf7ed2da2209b56c"></script>
+  <script type="text/javascript" src="/packages/ddp.js?d1840d3ba04c65ffade261f362e26699b7509706"></script>
+  <script type="text/javascript" src="/packages/mongo.js?3cfe0c5981c197df33036a37574850f057e934a6"></script>
+  <script type="text/javascript" src="/packages/url.js?2312d739008b2ffa52f13c77c5d6fc59c9e17d56"></script>
+  <script type="text/javascript" src="/packages/http.js?c3c7d0da66f683af57294173733637845f39253a"></script>
+  <script type="text/javascript" src="/packages/autoupdate.js?8b3731143e5fd73e9db3f53da3189f79c823d5d7"></script>
+  <script type="text/javascript" src="/packages/meteor-platform.js?499a2f8522e25820b1153c69a92751ccaae507b3"></script>
+  <script type="text/javascript" src="/packages/less.js?7d1bf981a25a449d6270558bcfc983313c40cd26"></script>
+  <script type="text/javascript" src="/packages/email.js?911578310472ff10dca16a5306b7f455801d0f35"></script>
+  <script type="text/javascript" src="/packages/jquery.js?dd8bac56f8fd3666d433d2285ae01e52597cc51a"></script>
+  <script type="text/javascript" src="/packages/coffeescript.js?969f68786bbc68e6cad299e74922a53af3d1404b"></script>
+  <script type="text/javascript" src="/packages/jquery-waypoints.js?a0b8f003ec785ffc3aee5f9754a487612b17f10a"></script>
+  <script type="text/javascript" src="/packages/fastclick.js?fe15770c77da049b885a0d66c669fa44057f05ee"></script>
+  <script type="text/javascript" src="/packages/localstorage.js?9ec7d68858d2e33aa807e5cfd5e12bb4d62fe00c"></script>
+  <script type="text/javascript" src="/packages/callback-hook.js?2dd5338ef4585da6eadefd19681e01ae0a1cd8d7"></script>
+  <script type="text/javascript" src="/packages/deps.js?504589e1e9585dec8f9f6094e5a87b22de3783a1"></script>
+  <script type="text/javascript" src="/packages/htmljs.js?567eb96d5d22631c03d6aca6afa4c42f0d1295f2"></script>
+  <script type="text/javascript" src="/packages/observe-sequence.js?0532a9dd76dd78f543eb4d79a1e429df186d8bde"></script>
+  <script type="text/javascript" src="/packages/reactive-var.js?20335b7b37165980ddd9f23943b2e5b00aae1cc2"></script>
+  <script type="text/javascript" src="/packages/blaze.js?a5c324925e5f6e800a4c618d71caf2848b53bf51"></script>
+  <script type="text/javascript" src="/packages/accounts-base.js?7c29db5c21a76726509bb6bb2a68a2b4b1ecf657"></script>
+  <script type="text/javascript" src="/packages/oauth.js?d518c202187e9fbb87e46dd47b43ae6f91fcd675"></script>
+  <script type="text/javascript" src="/packages/accounts-oauth.js?22d7668f8f57baf74a59fad0ff324ca5004edcbb"></script>
+  <script type="text/javascript" src="/packages/templating.js?376767bb0d2463b3b2615a1b90e77f6b22d39d7b"></script>
+  <script type="text/javascript" src="/packages/service-configuration.js?262da6fb1e9c97be84333c429c9a2929c80f8e3b"></script>
+  <script type="text/javascript" src="/packages/oauth1.js?6c8a243dd3199e6507c7bb6bd1e711a90b27dbcb"></script>
+  <script type="text/javascript" src="/packages/twitter.js?c15b78e01589695814fe4b10e1864a09a39718bc"></script>
+  <script type="text/javascript" src="/packages/accounts-twitter.js?a1c5862c55c6bf951b845bee147062ac1d5fb3d4"></script>
+  <script type="text/javascript" src="/packages/launch-screen.js?495e58cf2465ba553324c68301cc62076b1fda1e"></script>
+  <script type="text/javascript" src="/packages/tmeasday_publish-counts.js?baf3852bd1f37da769232d82f467a287fe87e7a9"></script>
+  <script type="text/javascript" src="/packages/reactive-dict.js?1cb61826ceb23464171f17c2191c7e04a9b91508"></script>
+  <script type="text/javascript" src="/packages/iron_core.js?fe41a023a7a6f1ded90b0729437928a8ddccc7d4"></script>
+  <script type="text/javascript" src="/packages/ui.js?5a663333fd30f8fd913f110e0ef779e84f67c4b8"></script>
+  <script type="text/javascript" src="/packages/iron_dynamic-template.js?32038885cb1dad7957291ffebfffcb7f8cd57d20"></script>
+  <script type="text/javascript" src="/packages/iron_layout.js?080dc95e770e3130757bf6af69fd0abb99573ae4"></script>
+  <script type="text/javascript" src="/packages/iron_router.js?da7f2ac81c3fd9daebf49ce9a6980a54caa1dc17"></script>
+  <script type="text/javascript" src="/packages/percolate_velocityjs.js?4ddef173ff01bea3569be0ea31627c0c4825ab2b"></script>
+  <script type="text/javascript" src="/packages/percolate_wireframing.js?7398f196e9f874fa741a599ca273df48d354684c"></script>
+  <script type="text/javascript" src="/packages/session.js?daf192a7244079d45db32a6fc26ebc3881fc1aa3"></script>
+  <script type="text/javascript" src="/packages/mdg_camera.js?e50c994985f2115856b8350276ba0f35e0dbaa0d"></script>
+  <script type="text/javascript" src="/packages/mdg_geolocation.js?469713cfedd78926162788f8d833c813278610b3"></script>
+  <script type="text/javascript" src="/packages/webapp.js?e1be090051b82f046484dccc2de7d747e50c7328"></script>
+  <script type="text/javascript" src="/packages/livedata.js?718526445deb4d9baacb6d92c551adea1d36c1e1"></script>
+  <script type="text/javascript" src="/packages/spacebars.js?7bafbe05ec09b6bbb6a3b276537e4995ab298a2f"></script>
+  <script type="text/javascript" src="/packages/mobile-status-bar.js?f2ba1fc67740003d54a6c78c4c73575d69dcfffe"></script>
+  <script type="text/javascript" src="/packages/global-imports.js?5b693b11e9f3414fdc61db2ebf24f83a7738e33a"></script>
+  <script type="text/javascript" src="/client/templates/template.about.js?14ef58e6ba7c345dbd86281ecf9ea8f0c4b4e424"></script>
+  <script type="text/javascript" src="/client/templates/template.activity.js?d663051ce5c007aed64a7cec450b454b4f550989"></script>
+  <script type="text/javascript" src="/client/templates/template.admin.js?76a5a6c4392f193a4c1876cd67568586dd78dc99"></script>
+  <script type="text/javascript" src="/client/templates/template.app-body.js?a9d226991503d4d250ba2b961f362bd206526418"></script>
+  <script type="text/javascript" src="/client/templates/template.auth-overlay.js?eb923cbf07eed64e9b6271739b63a335a6a9bb61"></script>
+  <script type="text/javascript" src="/client/templates/template.bookmarks.js?a961a53bfa72a2e6e11fc75b5ff5a7508a6ba121"></script>
+  <script type="text/javascript" src="/client/templates/template.home.js?7c895d4ca3aaeb57691dc1012f6fd3f0e4e08398"></script>
+  <script type="text/javascript" src="/client/templates/template.nav.js?da385bb4d06de9fa7c3bf985c0d643fec5cf0536"></script>
+  <script type="text/javascript" src="/client/templates/template.not-found.js?11c936e1f4bf1ee3330be9b64e028b8e7d71bdaa"></script>
+  <script type="text/javascript" src="/client/templates/template.overlay.js?4e320a74218dd2fcf233ef92e910dbae85d0ccab"></script>
+  <script type="text/javascript" src="/client/templates/template.recipe-item.js?432abb1f36caaffc81bb33e5b0420664208ba908"></script>
+  <script type="text/javascript" src="/client/templates/template.recipe.js?823c96daf45c3e26195d50364047044edb24aee6"></script>
+  <script type="text/javascript" src="/client/templates/template.recipes.js?4667a1191be738543d23c02141800d1e4a9401b3"></script>
+  <script type="text/javascript" src="/client/templates/template.share-overlay.js?aa7b6e85ee62aff1dbc3cb4674d6d8a55caba3a0"></script>
+  <script type="text/javascript" src="/client/templates/template.whats-cooking.js?13fa1d08d61c8b071470a5489bc9fbea82aa3ac8"></script>
+  <script type="text/javascript" src="/client/lib/jquery.touchwipe.js?3984769cb5c981ef6c4fec42b224c785858ba879"></script>
+  <script type="text/javascript" src="/lib/activities.js?89f40e189efe19bce6ea6eb362a71e0afaa75a02"></script>
+  <script type="text/javascript" src="/lib/bookmarks.js?e8d1f4145db15685af1145faebcb31deca1597a0"></script>
+  <script type="text/javascript" src="/lib/news.js?c21ef3e74ba10babc4524c24ac28fe2808f4c957"></script>
+  <script type="text/javascript" src="/lib/recipes-data.js?90e6fc05acc442acebb03f7224e67f0fb6e3a859"></script>
+  <script type="text/javascript" src="/lib/router.js?72e3fd6f9ff7cbe66330c17b17ed40850d14f600"></script>
+  <script type="text/javascript" src="/client/templates/activity.js?976dcbdd829170c2cc009853b4b20b0ea8333cf8"></script>
+  <script type="text/javascript" src="/client/templates/admin.js?85743b5baca5f7362e5bf28bfd9955f3be3e82a4"></script>
+  <script type="text/javascript" src="/client/templates/app-body.js?b96543f3e8b69cba8b24a909fe36f180f320df14"></script>
+  <script type="text/javascript" src="/client/templates/auth-overlay.js?036d7c1cad95dd3a03f23f8c675304bc61eeb004"></script>
+  <script type="text/javascript" src="/client/templates/bookmarks.js?6831a0c3968328783147eb32c3482c071853cb59"></script>
+  <script type="text/javascript" src="/client/templates/home.js?3f336eaa901c1882802eed1b8d3ecd69a977281e"></script>
+  <script type="text/javascript" src="/client/templates/nav.js?0c3ecce6ee7b803e10a3795f050c409848c572ce"></script>
+  <script type="text/javascript" src="/client/templates/overlay.js?a6a264a75532bfd8bce98ada02a3bd8f4c9ed038"></script>
+  <script type="text/javascript" src="/client/templates/recipe-item.js?2feb72bf1ce0470402fef2d87929d42c4f018dfd"></script>
+  <script type="text/javascript" src="/client/templates/recipe.js?1ac4a9473c3376909274559bc5d09f65b3a87a0a"></script>
+  <script type="text/javascript" src="/client/templates/share-overlay.js?518a7245e18d4e7dfbc5c581897059abdea388a6"></script>
+  <script type="text/javascript" src="/client/templates/whats-cooking.js?1e086b2638530525bacd7940f69a8c5a2983ee80"></script>
+  <script type="text/javascript" src="/client/helpers.js?2540c3a92c1138355615359027108e481de58877"></script>
+  <script type="text/javascript" src="/client/init.js?5d6e85403ec78131da1a4b2a97466a6d1229e5e6"></script>
+
+
+  <meta charset="utf-8">
+  <title>Local Market - Your Neighborhood Grocer</title>
+  <meta name="description" content="Get the latest news, checkout hand-picked recipes, and share with other locals.">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?123" sizes="16x16 32x32 64x64">
+
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-precomposed.png">
+</head>
+
+<body>
+  
+</body>
+</html>

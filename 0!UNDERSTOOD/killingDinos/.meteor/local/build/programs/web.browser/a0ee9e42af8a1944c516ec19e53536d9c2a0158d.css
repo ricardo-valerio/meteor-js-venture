@@ -1,0 +1,1089 @@
+/* CSS declarations go here */
+
+.editable-JSON-indent .editable-JSON-indent {
+  margin-left: 1.2em;
+}
+
+.editable-JSON {
+  color: inherit;
+}
+
+.editable-JSON,
+.editable-JSON-input,
+.editable-JSON input {
+  font-family: Courier, Lucidatypewriter, Fixed, monospace;
+  font-size: 14px;
+}
+
+.editable-JSON-number,
+.editable-JSON-date input,
+.editable-JSON-field:not(.editable-JSON-_id-field),
+.editable-JSON-string:not(.editable-JSON-_id-value) {
+  cursor: pointer;
+}
+
+.editable-JSON-input {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.editable-JSON-field {
+  color: #F92772;
+}
+
+/***
+* The following three rules are to make the JSON display like a pre at the top level.
+* The `.editable-JSON-indent .editable-JSON-indent` rule at the top is also part of this.
+* The alternative is to remove these three rules and one of the `.editable-JSON-indent`'s.
+*/
+
+.editable-JSON > .editable-JSON-indent > .editable-JSON-field {
+  margin-left: 1.2em;
+}
+
+.editable-JSON > .editable-JSON-indent > .editable-JSON-indent {
+  margin-left: 2.4em;
+}
+
+.editable-JSON > .editable-JSON-indent > .editable-JSON-closer {
+  margin-left: 1.2em;
+}
+
+.editable-JSON-string {
+  color: #A6E22D;
+}
+
+.editable-JSON-boolean {
+  color: #66D9EF;
+  cursor: pointer;
+}
+
+.editable-JSON .editable-JSON-date input {
+  min-width: 14.4em;
+  cursor: auto;
+  background: inherit;
+}
+
+.editable-JSON-date input:focus {
+  background: rgba(128,128,128,.1);
+}
+
+.editable-JSON-number {
+  color: #E6DB74;
+}
+
+.editable-JSON-null {
+  color: #AE81FF;
+}
+
+.editable-JSON input {
+  background: rgba(128,128,128,.15);
+  border: 0;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.editable-JSON input::selection {
+  background: #955;
+}
+
+.editable-JSON input::-moz-selection {
+  background: #955;
+}
+
+
+
+.editable-JSON-_id-field,
+.editable-JSON-_id-value {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.MeteorToys input,
+.MeteorToys label,
+.MeteorToys select,
+.MeteorToys button,
+.MeteorToys textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 13px;
+  font-family: Arial;
+}
+
+/* Remove the stupid outer glow in Webkit */
+
+.MeteorToys input:focus {
+  outline: 0;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+
+.MeteorToys input,
+.MeteorToys textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+
+.MeteorToys button,
+.MeteorToys input[type=reset],
+.MeteorToys input[type=button],
+.MeteorToys input[type=submit],
+.MeteorToys input[type=checkbox],
+.MeteorToys input[type=radio],
+.MeteorToys select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Text Inputs
+-----------------------------------------------*/
+
+
+
+/* Button Controls
+-----------------------------------------------*/
+
+.MeteorToys input[type=checkbox],
+.MeteorToys input[type=radio] {
+  width: 13px;
+  height: 13px;
+}
+
+/* File Uploads
+-----------------------------------------------*/
+
+
+
+/* Search Input
+-----------------------------------------------*/
+
+/* Make webkit render the search input like a normal text field */
+
+.MeteorToys input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+
+::-webkit-search-decoration {
+  display: none;
+}
+
+/* Buttons
+-----------------------------------------------*/
+
+.MeteorToys button,
+.MeteorToys input[type="reset"],
+.MeteorToys input[type="button"],
+.MeteorToys input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+
+.MeteorToys ::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Textarea
+-----------------------------------------------*/
+
+.MeteorToys textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto;
+}
+
+/* Selects
+-----------------------------------------------*/
+
+
+
+.MeteorToys select[multiple] {
+  /* Move the label to the top */
+  vertical-align: top;
+}
+
+/* Standard Font */
+
+@font-face {
+  font-family: Liberation Mono;
+  src: url('packages/meteortoys_toykit/public/Liberation.ttf');
+}
+
+/* Syntax Highlighting */
+
+.MeteorToys_string,
+.Mongol_string {
+  color: #A6E22D;
+  /* !important; /* green */
+}
+
+.MeteorToys_number,
+.Mongol_number {
+  color: #E6DB74;
+  /* !important; /* green-yellow */
+}
+
+.MeteorToys_boolean,
+.Mongol_boolean {
+  color: #66D9EF;
+  /* !important; /* dark orange */
+}
+
+.MeteorToys_null,
+.Mongol_null {
+  color: #AE81FF;
+  /* !important; /* blue */
+}
+
+.MeteorToys_key,
+.Mongol_key {
+  color: #F92772;
+  /* !important; /* magenta */
+}
+
+/* Err */
+
+.MeteorToys {
+  background-color: rgba(56,56,56,.92);
+  -webkit-font-smoothing: antialiased;
+  font-family: Liberation Mono, "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
+  position: fixed;
+  transition: 0.3s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 28px;
+  padding: 0px;
+  margin: 0px;
+  z-index: 2147483646;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: default;
+}
+
+.MeteorToys * {
+  outline: none;
+}
+
+.MeteorToys strong {
+  color: rgba(255,255,255,.8);
+  font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important;
+  font-weight: bold;
+}
+
+#MeteorToys_ToyKit {
+  width: 100%;
+  box-shadow: inset 0 0 0 30px rgba(0,0,0,.3);
+}
+
+#MeteorToys_ToyKit strong {
+  padding-left: 8px;
+}
+
+#MeteorToys_ToyKit div {
+  float: right;
+  padding: 0 8px;
+  cursor: pointer;
+  border-left: 1px solid rgba(255,255,255,.2);
+}
+
+/*#MeteorToys_ToyKit div:hover;*/
+
+.MeteorToys_orbs {
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2147483647;
+  line-height: 20px;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Liberation Mono', Courier, Lucidatypewriter, Fixed, monospace;
+  font-size: 14px;
+}
+
+/* ORB UI */
+
+.MeteorToys_orb {
+  height: 48px;
+  width: 48px;
+  background: rgba(56,56,56,.92);
+  float: left;
+  margin-left: 8px;
+  margin-top: 0px;
+  pointer-events: all;
+  transition: .25s;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 0 0 12px 12px;
+}
+
+.MeteorToys_orb_condensed {
+  height: 48px !important;
+  width: 48px !important;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.MeteorToys_orb_wrapper {
+  margin: 8px;
+  box-shadow: 0 0 0 75px rgba(0,0,0,.34);
+  border-radius: 5px;
+  height: calc(100% - 16px);
+  overflow: hidden;
+  margin-top: 74px;
+  transition: .25s;
+}
+
+.MeteorToys_orb:hover .MeteorToys_orb_wrapper {
+  box-shadow: 0 0 0 75px rgba(0,0,0,.86);
+}
+
+.MeteorToys_orb:hover .MeteorToys_icon {
+  opacity: .8 !important;
+}
+
+.MeteorToys_orb_active .MeteorToys_orb_wrapper {
+  box-shadow: 0 0 0 75px rgba(0,0,0,.86);
+  margin-top: 8px;
+}
+
+.MeteorToys_orb_active {
+  z-index: 2147483647 !important;
+}
+
+.MeteorToys_orb .MeteorToys_icon {
+  transition: .25s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .6;
+  height: 48px;
+  width: 48px;
+  background-size: cover;
+}
+
+.MeteorToys_orb_active .MeteorToys_icon {
+  top: -48px;
+}
+
+/* Button UI */
+
+.MeteorToys_button {
+  margin-top: 8px !important;
+  border-radius: 24px !important;
+  cursor: pointer;
+}
+
+.MeteorToys_button .MeteorToys_icon {
+  top: 0px !important;
+}
+
+.MeteorToys_button .MeteorToys_orb_wrapper {
+  height: 0px;
+  width: 0px;
+}
+
+.MeteorToys_button:active .MeteorToys_orb_wrapper {
+  box-shadow: 0 0 0 75px rgba(0,0,0,.9);
+  box-shadow: 0 0 0 75px rgba(0,0,0,0) !important;
+}
+
+.MeteorToys_row {
+  border-bottom: 1px solid rgba(0,0,0,.36);
+  padding: 4px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MeteorToys_row_remove {
+  float: right;
+}
+
+.MeteorToys_row_remove:hover {
+  color: #ED8294;
+}
+
+.MeteorToys_row:last-child {
+  border-bottom: 0px solid transparent;
+}
+
+.MeteorToys_row:nth-child(-n+9) {
+  border-bottom: 1px solid rgba(0,0,0,.36);
+}
+
+
+
+.MeteorToys_row_hoverable:hover {
+  /*color: rgba(131, 202, 237, 1);*/
+  background: rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(0,0,0,.44) !important;
+  cursor: pointer;
+  /**/
+}
+
+.MeteorToys_row_expanded {
+  border-bottom: 1px solid rgba(0,0,0,.36);
+  padding: 4px 0;
+}
+
+.MeteorToys_row_expanded:last-child {
+  border-bottom: 0px solid transparent;
+}
+
+.MeteorToys_row_expanded:nth-child(-n+5) {
+  border-bottom: 1px solid rgba(0,0,0,.36);
+}
+
+/* Form Resets */
+
+/*, .MeteorToys {}*/
+
+.MeteorToys_orbs input,
+.MeteorToys_orbs label,
+.MeteorToys_orbs select,
+.MeteorToys_orbs button,
+.MeteorToys_orbs textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  background: transparent;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  outline: 0;
+  /*color: rgba(255,255,255,.6);*/
+  color: inherit;
+  resize: none;
+}
+
+.MeteorToys_orbs textarea {
+  width: 100%;
+}
+
+.MeteorToys_orbs input[type="submit"] {
+  color: #A6E22D;
+  float: right;
+  padding: 8px 0;
+}
+
+.MeteorToys_row input {
+  width: 62%;
+  float: right;
+  margin: -4px 0;
+  padding: 4px 0;
+  background: rgba(255,255,255,.1) !important;
+  text-indent: 5px;
+  margin-left: 8px;
+}
+
+.MeteorToys_row_name {
+  width: calc(38% - 8px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MeteorToys_orbs ::-webkit-input-placeholder {
+  color: rgba(255,255,255,.4) !important;
+}
+
+.MeteorToys_orbs :-moz-placeholder {
+  color: rgba(255,255,255,.4) !important;
+}
+
+.MeteorToys_orbs ::-moz-placeholder {
+  color: rgba(255,255,255,.4) !important;
+}
+
+.MeteorToys_orbs :-ms-input-placeholder {
+  color: rgba(255,255,255,.4) !important;
+}
+
+.MeteorToys form,
+.MeteorToys_orbs form {
+  line-height: inherit;
+  padding: auto;
+  margin: auto;
+}
+
+.MeteorToys_right {
+  float: right;
+}
+
+.MeteorToys_name {
+  float: left;
+}
+
+.MeteorToys a {
+  color: #A6E22D !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.MeteorToys a:hover {
+  color: #A6E22D !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #A6E22D;
+}
+
+#Mongol {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 143px;
+  max-height: 100%;
+  overflow: auto;
+  font-size: 14px;
+}
+
+#Mongol * {
+  outline: none;
+  font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important;
+}
+
+#Mongol ::-webkit-scrollbar {
+  display: none;
+}
+
+#Mongol.Mongol_expand {
+  width: 100% !important;
+  max-width: 320px !important;
+}
+
+.Mongol_expand {
+  z-index: 2147483647 !important;
+}
+
+/* Row */
+
+.Mongol_row {
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 28px;
+  position: relative;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  margin-bottom: 1px;
+}
+
+.Mongol_row_name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 8px;
+  z-index: 9999999999999;
+  position: relative;
+}
+
+.Mongol_row:last-child {
+  margin-bottom: 0px;
+}
+
+.Mongol_row:hover {
+  cursor: pointer;
+}
+
+.MongolHide {
+  max-width: 0px;
+  opacity: 0;
+}
+
+.Mongol_row_expand {
+  height: 320px;
+  cursor: default !important;
+}
+
+.Mongol_row_expand .MongolHide {
+  opacity: 1;
+  max-width: auto;
+  overflow: auto;
+}
+
+.Mongol_row_expand .Mongol_Controls {
+  width: 20px;
+  line-height: 19px;
+  font-size: 22px;
+  height: 20px;
+  border-radius: 50px;
+  background: #fff;
+  color: #000;
+  opacity: 0.2;
+}
+
+.Mongol_row_expand .Mongol_Controls:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.Mongol_row_expand .Mongol_plus {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.Mongol_counter {
+  float: right;
+}
+
+/* Row > Editing */
+
+.Mongol_editable {
+  cursor: auto;
+}
+
+.Mongol_editable span {
+  color: #fff !important;
+}
+
+/* Row > Content View */
+
+.Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.Mongol_row:hover .Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.68);
+  -webkit-transition: all 0s !important;
+  -moz-transition: all 0s !important;
+  -ms-transition: all 0s !important;
+  -o-transition: all 0s !important;
+  transition: all 0s !important;
+}
+
+.Mongol_row_expand .Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.68);
+}
+
+/* Document Viewer */
+
+#Mongol pre {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+  list-style: none;
+  quotes: none;
+  content: "";
+  content: none;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.Mongol_documentViewer {
+  height: 255px;
+  padding: 0 7px;
+  padding-top: 3px;
+  line-height: 20px;
+  overflow: auto;
+  border-radius: 0 0 5px 5px;
+  z-index: 9999999998;
+  position: relative;
+  -webkit-transition: all .3s !important;
+  -moz-transition: all .3s !important;
+  -ms-transition: all .3s !important;
+  -o-transition: all .3s !important;
+  transition: all .3s !important;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.Mongol_documentViewer pre {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  overflow: visible;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Need to check if this is still needed */
+
+.Mongol_documentViewer span {
+  -webkit-transition: all .2s !important;
+  -moz-transition: all .2s !important;
+  -ms-transition: all .2s !important;
+  -o-transition: all .2s !important;
+  transition: all .2s !important;
+}
+
+.Mongol_documentViewer_buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-collapse: collapse;
+}
+
+.Mongol_documentViewer_buttons div {
+  float: right;
+  line-height: 18px;
+  right: 0;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0 4px;
+  padding-top: 2px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-family: "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
+}
+
+/* JSON colors */
+
+/* Inspired by Monokai */
+
+.Mongol_string {
+  color: #A6E22D !important;
+}
+
+/* green */
+
+.Mongol_number {
+  color: #E6DB74 !important;
+}
+
+/* dark orange */
+
+.Mongol_boolean {
+  color: #66D9EF !important;
+}
+
+/* blue */
+
+.Mongol_null {
+  color: #AE81FF !important;
+}
+
+/* magenta */
+
+.Mongol_key {
+  color: #F92772 !important;
+}
+
+/* Document Menu */
+
+.Mongol_docMenu {
+  line-height: 28px;
+  height: 28px;
+  border-radius: 5px 5px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 1px;
+  position: relative;
+  /*background: rgba();*/
+  /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAAAAACBhLHlAAAAD0lEQVR4AWM0YwAhXRACAAVnAMsAW/K6AAAAAElFTkSuQmCC");*/
+  background: rgba(0, 0, 0, 0.2);
+  background-size: 1px 2px;
+  background-position: 0 -1px;
+  overflow: hidden;
+}
+
+.Mongol_docMenu .Mongol_docBar1,
+.Mongol_docMenu .Mongol_docBar2 {
+  position: absolute;
+  top: 0;
+  height: 28px;
+  width: 100%;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.Mongol_m_left,
+.Mongol_m_right,
+.Mongol_m_new,
+.Mongol_m_edit,
+.Mongol_m_delete,
+.Mongol_docMenu_insert {
+  float: left;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 0 8px;
+}
+
+.Mongol_m_edit {
+  border-left: 0px solid transparent;
+}
+
+.Mongol_m_delete {
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.Mongol_edit_save,
+.Mongol_edit_cancel {
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 0 8px;
+  float: right;
+}
+
+.Mongol_edit_title {
+  float: left;
+  padding-left: 8px;
+}
+
+.Mongol_m_edit {
+  margin-left: 0px;
+}
+
+.Mongol_m_left,
+.Mongol_m_right {
+  float: right !important;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 8px !important;
+  border-right: 0px solid transparent;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.Mongol_m_signout,
+.Mongol_m_signin {
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  float: right;
+  padding: 0 8px;
+}
+
+.Mongol_m_updateAccount {
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.Mongol_edit_save:hover,
+.Mongol_edit_cancel:hover,
+.Mongol_docMenu_insert:hover,
+.Mongol_m_signout:hover,
+.Mongol_m_signin:hover,
+.Mongol_m_left:hover,
+.Mongol_m_right:hover,
+.Mongol_m_new:hover,
+.Mongol_m_edit:hover,
+.Mongol_m_delete:hover {
+  color: #2CA6E2;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.Mongol_m_disabled {
+  color: rgba(0, 0, 0, 0.4) !important;
+  cursor: default !important;
+  background: transparent !important;
+}
+
+/* Editable JSON */
+
+#Mongol input {
+  border: 0;
+  padding: 0 !important;
+  margin: 0;
+  text-indent: 0px;
+  padding: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  height: 18px !important;
+  margin: 0px !important;
+  line-height: inherit !important;
+  border: 0px solid transparent !important;
+  color: inherit;
+}
+
+#Mongol .editable-JSON-_id-field,
+#Mongol .editable-JSON-_id-value {
+  opacity: 1;
+}
+
+/* Subscriptions */
+
+.Mongol_subscription {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 0 5px 0;
+  margin: 0 2px;
+  line-height: 18px;
+}
+
+.Mongol_subscription:first-child {
+  padding-top: 2px;
+}
+
+.Mongol_subscription_toggle {
+  height: 36px;
+  width: 28px;
+  line-height: 38px;
+  text-align: center;
+  float: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /*margin-left: 8px;*/
+  font-family: Menlo !important;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: -8px;
+}
+
+.Mongol_subscription_toggle:hover {
+  color: #EB4C16;
+  cursor: pointer;
+}
+
+.Mongol_subscription_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Account State Badget */
+
+.Mongol_account_active,
+.Mongol_account_inactive {
+  float: right;
+  height: 8px;
+  width: 8px;
+  border-radius: 10px;
+  background: #EB4C16;
+  margin-top: 10px;
+}
+
+.Mongol_account_active {
+  background: #A6E22D;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: 12pt Verdana, sans-serif;
+}
+
+body {
+  background: #fffff5;
+  color: #330033;
+  width: 25em;
+  margin: 5em auto;
+}
+
+h1 {
+  font-size: 2.0em;
+  text-align: center;
+  margin-top: 1.0em;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+table {
+  font-size: 1.5em;
+  padding: 1.0em;
+  margin: 1.0em 0.0em;
+  background: #ddd;
+  width: 100%;
+  border-radius: 0.5em;
+  border-spacing: 0px;
+}
+
+th {
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 0.2em;
+}
+
+td {
+  padding: 0.2em;
+}
+
+tbody>tr {
+  cursor: pointer;
+}
+
+.dino {
+  text-align: left;
+}
+
+.votes {
+  text-align: right;
+}
+
+.selected {
+  background: #ffc;
+}
+
+input {
+  border-radius: 0.3em;
+  padding: 0.3em;
+  margin: 1.0em 0.0em;
+}
+
+input#dinoToAdd {
+  display: block;
+  width: 20em;
+  float: left;
+}
+
+input#addDino {
+  display: block;
+  width: 3em;
+  float: right;
+}
+
+div {
+  text-align: center;
+}
