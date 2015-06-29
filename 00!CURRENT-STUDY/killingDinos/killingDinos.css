@@ -1,11 +1,5 @@
 /* CSS declarations go here */
 
-* {
-  margin: 0;
-  padding: 0;
-  font: 12pt Verdana, sans-serif;
-}
-
 body {
   background: #fffff5;
   color: #330033;
