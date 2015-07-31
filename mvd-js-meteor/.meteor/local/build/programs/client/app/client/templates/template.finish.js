@@ -1,3 +1,0 @@
-(function(){Template.__define__("finish",Package.handlebars.Handlebars.json_ast_to_func(["<div id='finish'>\n    <h2 class='general'>That's it!</h2>\n    <p class='general'>You made it in ",["{",[[0,"time"]]],"</p>\n    <div class='finish_form'>\n      <input placeholder='Your name' type='text' name='player_name' class='general' id='player_name' autofocus><!-- \n      --><button class='general' id='finish_submit'>Send!</button>\n    </div>\n    <div class='finish_share'>\n      <a href='https://twitter.com/share' class='twitter-share-button' data-text='just finished in ",["{",[[0,"time"]]],"' data-via='espinosacurbelo' data-size='large' data-hashtags='MVDJS' data-dnt='true'>Tweet</a>\n    </div>\n  </div>"]));
-
-})();
