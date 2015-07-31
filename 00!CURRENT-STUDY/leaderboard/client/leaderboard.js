@@ -14,7 +14,7 @@
 
     },
     'selectedClass': function(){
-
+/*
         // Get the ID of the player being iterated through
         var playerId = this._id;
 
@@ -28,6 +28,8 @@
             return "selected"
 
         }
+*/
+        return this._id == Session.get('selectedPlayer') ? "selected" : "";
 
     },
     'showSelectedPlayer': function(){

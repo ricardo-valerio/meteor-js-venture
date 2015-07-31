@@ -1,4 +1,5 @@
 Messages = new Mongo.Collection('messages');
+
 if (Meteor.isClient) {
   Meteor.subscribe('messages', 5);
 
