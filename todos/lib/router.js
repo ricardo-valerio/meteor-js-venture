@@ -31,7 +31,9 @@ if (Meteor.isClient) {
 }
 
 Router.map(function() {
+
   this.route('join');
+
   this.route('signin');
 
   this.route('listsShow', {
