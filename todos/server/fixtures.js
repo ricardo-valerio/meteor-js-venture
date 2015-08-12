@@ -2,7 +2,8 @@
 Meteor.startup(function () {
   if (Lists.find().count() === 0) {
     var data = [
-      {name: "Meteor Principles",
+      {
+       name: "Meteor Principles",
        items: [
          "Data on the Wire",
          "One Language",
@@ -13,7 +14,8 @@ Meteor.startup(function () {
          "Simplicity Equals Productivity"
        ]
       },
-      {name: "Languages",
+      {
+       name: "Languages",
        items: [
          "Lisp",
          "C",
@@ -26,7 +28,8 @@ Meteor.startup(function () {
          "6502 Assembly"
         ]
       },
-      {name: "Favorite Scientists",
+      {
+       name: "Favorite Scientists",
        items: [
          "Ada Lovelace",
          "Grace Hopper",
