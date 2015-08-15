@@ -42,6 +42,7 @@ Meteor.startup(function () {
     ];
 
     var timestamp = (new Date()).getTime();
+
     _.each(data, function(list) {
       var list_id = Lists.insert({name: list.name,
         incompleteCount: list.items.length});
@@ -53,5 +54,6 @@ Meteor.startup(function () {
         timestamp += 1; // ensure unique timestamp.
       });
     });
+
   }
 });
