@@ -1,0 +1,79 @@
+<template name="loggedInUserSettings">
+
+<div class="row section">
+
+    <form class="col s12">
+	 <!-- Avatar -->
+    <!--
+       <div class="row">
+        <div class="input-field col s8 offset-s2">
+        <div style="display: table; margin: 0 auto;" class="valign-wrapper">
+    	 		<img id="avatarSettingsUserProfile" style="max-width: 150px; max-height: 150px;" src="https://www.seoclerk.com/pics/240109-1uE9Qn1405591899.png" alt="" class="circle responsive-image valign">
+    		</div>
+        </div>
+      </div>
+     -->
+
+    <!-- TABS -->
+		<!--
+    <div class="row">
+			<div class="input-field col s8 offset-s2">
+				<ul class="GreenBlueGradientColor tabs tabs-feed z-depth-1">
+					<li id="takePictureSettings" style="cursor: pointer;" class="tab col s6"><a style="color: white;" class="">take a picture</a></li>
+					<li style="cursor: pointer;" class="tab col s6"><a style="color: white;" class="">Upload photo</a></li>
+				</ul>
+			</div>
+		</div>
+    -->
+
+	 <!-- Name Input  -->
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input placeholder="Enter your name..." id="first_name" type="text" class="validate">
+          <label class="active" for="first_name">Name</label>
+        </div>
+      </div>
+
+	  <!-- BithDay Input -->
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+		  <label for="birthdate" class="">Birthdate</label>
+		  <input id="birthdate" type="text" class="datepicker picker__input" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="birthdate_root">
+        </div>
+      </div>
+
+	  <!-- Country Select -->
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+		    <select>
+		      <option value="null" disabled selected>What's your Country?</option>
+		      <option value="au">Australia</option>
+		      <option value="pt">Portugal</option>
+		      <option value="us">United States Of America</option>
+		    </select>
+        </div>
+      </div>
+
+
+
+	  <!-- Bio -->
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+		        <textarea id="bio" class="materialize-textarea" length="220"></textarea>
+            <label for="bio">Bio</label>
+        </div>
+      </div>
+
+	  <!-- Save Button -->
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+			<a style="width: 100%;" class="GreenBlueGradientColor center-align waves-effect waves-light btn-large">Save</a>
+        </div>
+      </div>
+
+
+    </form>
+
+</div>
+
+</template>

@@ -1,0 +1,210 @@
+<template name="main">
+  <div class="navbar-fixed">
+  	<nav class="GreenBlueGradientColor">
+  	  <div class="nav-wrapper">
+	  	    <a href="{{pathFor route='index'}}" class="brand-logo center">
+            <img id="logo" src="images/vm.png" class="responsive-img" alt="VM" title="Veggie Meals">
+          </a>
+	  	    <a href="#" data-activates="nav-mobile" class="button-collapse"><i style="margin-left: 10px;" class="mdi-navigation-menu"></i></a>
+
+			<ul class="left hide-on-med-and-down">
+	  	      <li class="{{ activeIfRouteIs 'feed' }}">
+	  	      	<a href="{{pathFor route='feed'}}">
+	  	      		<i class="mdi-action-view-list left"></i>Feed
+	  	      	</a>
+	  	      </li>
+		      <li class="{{ activeIfRouteIs 'rank' }}">
+		      	<a href="{{pathFor route='rank'}}">
+		      		<i class="mdi-image-filter-hdr left"></i>Day Rank
+		      	</a>
+		      </li>
+	  	    </ul>
+
+          <!--
+          <ul style="display:none;" class="right show-on-medium-and-down">
+            <li>
+                <a class="waves-effect waves-light" href="#">
+                <i class="zmdi zmdi-flag right"></i></a>
+            </li>
+          </ul>
+          -->
+
+	  	    <ul class="right hide-on-med-and-down">
+	  	      <li class="{{ activeIfRouteIs 'search' }}">
+	  	      	<a href="{{pathFor route='search'}}">
+	  	      		<i class="mdi-action-search left"></i>Search
+	  	      	</a>
+	  	      </li>
+	  	      <li id="avatarUserProfile" style="cursor: pointer; height: 64px; padding-right: 10px; padding-left: 10px;" data-beloworigin="true" data-constrainwidth="false" data-activates="me" class="top-right-avatar">
+            <!-- <img src="https://www.seoclerk.com/pics/240109-1uE9Qn1405591899.png" alt="" class="circle"> -->
+              {{> avatar userId=user_id size="medium" shape="circle"}}
+            </li>
+	  	    </ul>
+
+
+			<ul id="nav-mobile" class="side-nav">
+
+			  <li class="no-padding">
+		          <ul class="collapsible collapsible-user-profile collapsible-accordion">
+		            <li class=""><a style="margin: 0;" class="collapsible-header waves-effect waves-teal">
+		            <!-- <img src="https://www.seoclerk.com/pics/240109-1uE9Qn1405591899.png" alt="" class="circle mealsFeadAvatars"> -->
+                {{> avatar userId=user_id size="medium" shape="circle"}}
+		            <span class="bold" style="position: relative; top: -42px; left: 75px;">{{username}}</span></a>
+		              <div style="" class="collapsible-body">
+		                <ul>
+		                  <li class="{{ activeIfRouteIs 'profile' }}"><a href="{{pathFor route='profile'}}"><i style="color: #26A69A;" class="mdi-action-dashboard left"></i>Profile</a></li>
+		                  <li class="{{ activeIfRouteIs 'settings' }}"><a href="{{pathFor route='settings'}}"><i style="color: #26A69A;" class="mdi-action-settings left"></i>Settings</a></li>
+		                  <li id="logout-left-nav"><a href="#"><i style="color: #26A69A;" class="mdi-content-reply left"></i>Logout</a></li>
+		                </ul>
+		              </div>
+		            </li>
+		            <li class="{{ activeIfRouteIs 'feed' }}"><a href="{{pathFor route='feed'}}" style="margin: 0;" class="waves-effect waves-teal">
+		            <i style="color: #26A69A;" class="mdi-action-view-list left"></i>Feed</a>
+		              <div style="display: none;" class="collapsible-body">
+		                <ul>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-local-cafe left"></i> Meals</a></li>
+		                  <li class=""><a href=""><i style="color: #26A69A;" class="zmdi zmdi-comment-dots zmd-fw left"></i> Feelings</a></li>
+		                </ul>
+		              </div>
+		            </li>
+		            <li class="{{ activeIfRouteIs 'rank' }}"><a href="{{pathFor route='rank'}}" style="margin: 0;" class="waves-effect waves-teal">
+		            <i style="color: #26A69A;" class="mdi-image-filter-hdr left"></i>Day Rank</a>
+		              <div style="" class="collapsible-body">
+		                <ul>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-local-cafe left"></i> Meals</a></li>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-comment-dots zmd-fw left"></i> Feelings</a></li>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-mood left"></i> Supporters</a></li>
+		                </ul>
+		              </div>
+		            </li>
+		            <li class="{{ activeIfRouteIs 'search' }}"><a href="{{pathFor route='search'}}" style="margin: 0;" class="waves-effect waves-teal">
+		            <i style="color: #26A69A;" class="mdi-action-search left"></i>Search</a>
+		              <div style="" class="collapsible-body">
+		                <ul>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-local-cafe left"></i> Community Recipes</a></li>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-accounts-add left"></i> People</a></li>
+		                  <li><a href=""><i style="color: #26A69A;" class="zmdi zmdi-local-dining left"></i> Restaurants</a></li>
+		                </ul>
+		              </div>
+		            </li>
+		          </ul>
+		        </li>
+
+			</ul>
+ 		</div>
+  	</nav>
+  </div>
+		{{> navUserProfile }}
+
+
+	<div class="container section">
+{{#if photo}}
+<!-- START CARD -->
+<div class="divider"></div>
+<h6 class="right-align">datetime</h6>
+     <div class="row section">
+      <div class="col s12 m10 offset-m1 l10 offset-l1">
+        <div class="card hoverable">
+         <div class="card-image waves-effect waves-block waves-light">
+           <img class="activator responsive-image" src="{{photo}}">
+         </div>
+         <div class="card-content">
+          <div class="left-align fixed-top-margin">
+            <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mealsFeadAvatars">
+            <span class="username-card">USERNAME</span>
+            <i class="icons-size mdi-action-highlight-remove right"></i>
+            <i class="icons-size mdi-action-visibility right"></i>
+          </div>
+
+          <div class="row fixed-inner-margins-in-meals-feed">
+            <div class="col s6">
+              <a href="#modal-meals-feed-1245" class="modal-trigger expanded-buttons waves-effect waves-light btn-large GreenBlueGradientColor"><i style="width: 100%;" class="zmdi zmdi-comment-text"> 1786</i></a>
+            </div>
+            <div class="col s6">
+              <!-- Modal Trigger For Comments -->
+              <a id="meals-feed-1245" class="loveButton expanded-buttons waves-effect waves-red btn-large GreenBlueGradientColor"><i id="meals-feed-1245" style="width: 100%;" class="zmdi zmdi-favorite"> 16756</i></a>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-reveal">
+         <span class="card-title grey-text text-darken-4" style="color: #EE6E73 !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, accusantium!</span>
+         <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est modi amet animi reiciendis quia quis molestiae possimus ipsum quae aut, voluptatibus odio? Doloribus itaque temporibus harum nemo exercitationem commodi possimus ducimus adipisci neque numquam provident dolorum, eaque, asperiores blanditiis aut!</p>
+       </div>
+     </div>
+   </div>
+  </div>
+
+<!-- MODAL -->
+
+  <!-- Modal Structure -->
+  <div id="modal-meals-feed-1245" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>
+        <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mealsFeadAvatars">
+        <span class="username-card">USERNAME</span>
+      </h4>
+      <div class="divider"></div>
+      <!-- SPINNER -->
+
+     <div id="modal-for-comments-post-with-id-1245" class="container">
+       <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+
+  {{/if}}
+
+		{{> yield }}
+
+	</div>
+
+	{{> fixedCreateActions }}
+
+</template>
+

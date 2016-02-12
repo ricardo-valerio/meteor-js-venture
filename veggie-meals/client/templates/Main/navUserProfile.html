@@ -1,0 +1,25 @@
+<template name="navUserProfile">
+
+   <div style="display: none;" id="navBarUserProfile" class="row hide-on-med-and-down">
+	    <div class="col s12 z-depth-1">
+	      <ul class="tabs tabs-user-profile">
+	        <li class="tab col s3">
+	        	<a id="profile" class="userProfileDashBoardRoute" href="{{pathFor route='profile'}}">
+	        		<i style="color: #26A69A;" class="mdi-action-dashboard"></i> Profile
+	        	</a>
+	        </li>
+	        <li class="tab col s3">
+		        <a id="settings" class="userProfileDashBoardRoute" href="{{pathFor route='settings'}}">
+		    	    <i style="color: #26A69A;" class="mdi-action-settings"></i> Settings
+		        </a>
+		    </li>
+	        <li class="tab col s3">
+	        	<a id="logout-user" class="userProfileDashBoardRoute" href="#">
+	        		<i style="color: #26A69A;" class="mdi-content-reply"></i> Logout
+	        	</a>
+	        </li>
+	      </ul>
+	    </div>
+  </div>
+
+</template>

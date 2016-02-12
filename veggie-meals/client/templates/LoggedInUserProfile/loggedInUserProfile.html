@@ -1,0 +1,38 @@
+<template name="loggedInUserProfile">
+
+<div class="row section">
+
+id of logged in user: {{ user_id }}
+
+	 <!-- Avatar -->
+      <div class="row">
+        <div class="col s8 offset-s2">
+	        <div style="display: table; margin: 0 auto;" class="valign-wrapper">
+		 		<!-- <img style="max-width: 150px; max-height: 150px;" src="https://www.seoclerk.com/pics/240109-1uE9Qn1405591899.png" alt="USERNAME" class="circle responsive-image valign"> -->
+		 		{{> avatar userId=user_id size="large" class="customAvatarStyles" shape="circle"}}
+				<p>Ricardo Valério, 24 <span class="country-tooltipped" data-position="right" data-delay="50" data-tooltip="Portugal">{{#emojione}} {{country}} {{/emojione}}</span></p>
+
+			</div>
+        </div>
+      </div>
+
+		<div class="row">
+			<p class="center-align flow-text">dolorem eligendi laudantium sequi voluptas quidem deleniti doloremque animi, distinctio officiis modi. Numquam deleniti enim ipsam eos, quae, autem at id neque nihil blanditiis ab exercitationem doloremque, quo repellat facilis modi ducimus officia!</p>
+			<div class="col s12">
+				<ul class="GreenBlueGradientColor tabs tabs-meals-feelings-of-logged-in-user z-depth-1">
+					<li style="cursor: pointer;" class="tab col s6"><a href="#user-meals-profile" style="color: white;" class="active">Meals</a></li>
+					<li style="cursor: pointer;" class="tab col s6"><a href="#user-feelings-profile" style="color: white;" class="">Feelings</a></li>
+				</ul>
+
+				<div id="user-meals-profile" class="col s10 offset-s1">
+					{{ > loggedInUserMealsProfile }}
+				</div>
+				<div id="user-feelings-profile" class="col s10 offset-s1">
+					{{ > loggedInUserFeelingsProfile }}
+				</div>
+			</div>
+		</div>
+
+</div>
+
+</template>

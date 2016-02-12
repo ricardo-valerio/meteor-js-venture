@@ -1,0 +1,196 @@
+<template name="feelingsFeed">
+
+<ul class="section collapsible collapsible-feed popout collapsible-accordion" data-collapsible="accordion">
+
+<!-- START POST -->
+  <li class="">
+    <div class="collapsible-header {{ activeOrangeIfUserIsLoggedIn "bazinga" }}">
+    	<div class="right-align">
+    		<a href="#!" class="secondary-content time-ago-feelings-feed">3 seconds ago</a>
+    	</div>
+    	<div>
+    	<!-- <img src="https://pbs.twimg.com/profile_images/516786942961135616/VrHY9rqX_400x400.png" alt="" class="circle mealsFeadAvatars"> -->
+      {{> avatar userId=user_id size="medium" shape="circle"}}
+      <span class="post-title">Title of the post goes here...</span>
+    	</div>
+    </div>
+    <div style="display: none;" class="collapsible-body center-align">
+	    <h5 class="left-align username-post"><a href="#">USERNAME</a> said:</h5>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	    <div class="row fixed-inner-margins-in-feelings-feed">
+            <div class="col s6">
+              <!-- MODAL TRIGGER -->
+              <a href="#modal-feelings-feed-1245" class="modal-trigger expanded-buttons waves-effect waves-light btn-large GreenBlueGradientColor"><i style="width: 100%;" class="zmdi zmdi-comment-text"> 1786</i></a>
+            </div>
+            <div class="col s6">
+              <a id="feelings-feed-1245" class="loveButton expanded-buttons waves-effect waves-red btn-large GreenBlueGradientColor"><i id="feelings-feed-1245" style="width: 100%;" class="zmdi zmdi-favorite"> 16756</i></a>
+            </div>
+        </div>
+    </div>
+  </li>
+
+  <!-- MODAL -->
+
+  <!-- Modal Structure -->
+  <div id="modal-feelings-feed-1245" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>
+        <!-- <img src="https://pbs.twimg.com/profile_images/559686565811597312/K-icIXGB_400x400.jpeg" alt="" class="circle mealsFeadAvatars"> -->
+        {{> avatar userId=user_id size="medium" shape="circle"}}
+        <span class="username-card">USERNAME</span>
+      </h4>
+      <div class="divider"></div>
+      <!-- SPINNER -->
+
+     <div id="modal-for-feed-feelings-with-id-1245" class="container">
+       <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+  <!-- END POST -->
+
+
+<!-- START POST -->
+  <li class="">
+    <div class="collapsible-header {{ activeOrangeIfUserIsLoggedIn user_id }}">
+      <div class="right-align">
+        <a href="#!" class="secondary-content time-ago-feelings-feed">1 week ago</a>
+      </div>
+      <div>
+      <!-- <img src="https://pbs.twimg.com/profile_images/516786942961135616/VrHY9rqX_400x400.png" alt="" class="circle mealsFeadAvatars"> -->
+      {{> avatar userId=user_id size="medium" shape="circle"}}
+      <span class="post-title">Title of the post goes here...</span>
+      </div>
+    </div>
+    <div style="display: none;" class="collapsible-body center-align">
+      <h5 class="left-align username-post"><a href="#">USERNAME</a> said:</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="row fixed-inner-margins-in-feelings-feed">
+            <div class="col s6">
+              <!-- MODAL TRIGGER -->
+              <a href="#modal-feelings-feed-1245" class="modal-trigger expanded-buttons waves-effect waves-light btn-large GreenBlueGradientColor"><i style="width: 100%;" class="zmdi zmdi-comment-text"> 1786</i></a>
+            </div>
+            <div class="col s6">
+              <a id="feelings-feed-1245" class="loveButton expanded-buttons waves-effect waves-red btn-large GreenBlueGradientColor"><i id="feelings-feed-1245" style="width: 100%;" class="zmdi zmdi-favorite"> 16756</i></a>
+            </div>
+        </div>
+    </div>
+  </li>
+
+  <!-- MODAL -->
+
+  <!-- Modal Structure -->
+  <div id="modal-feelings-feed-1245" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>
+        <!-- <img src="https://pbs.twimg.com/profile_images/559686565811597312/K-icIXGB_400x400.jpeg" alt="" class="circle mealsFeadAvatars"> -->
+        {{> avatar userId=user_id size="medium" shape="circle"}}
+        <span class="username-card">USERNAME</span>
+      </h4>
+      <div class="divider"></div>
+      <!-- SPINNER -->
+
+     <div id="modal-for-feed-feelings-with-id-1245" class="container">
+       <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+  <!-- END POST -->
+
+</ul>
+
+  <div class="row center-align">
+    <a style="background: #A4DAD5;" class="btn-floating btn-large waves-effect waves-light"><i class="zmdi zmdi-plus-circle"></i></a>
+  </div>
+
+</template>

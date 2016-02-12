@@ -1,0 +1,24 @@
+.picker__date-display,
+.picker__day picker__day--infocus,
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected
+ {
+  background: -webkit-linear-gradient(180deg, #43cea2 10%, #51C2E7 90%) !important; /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(180deg, #43cea2 10%, #51C2E7 90%) !important; /* FF3.6+ */
+  background:     -ms-linear-gradient(180deg, #43cea2 10%, #51C2E7 90%) !important; /* IE10 */
+  background:      -o-linear-gradient(180deg, #43cea2 10%, #51C2E7 90%) !important; /* Opera 11.10+ */
+  background:         linear-gradient(180deg, #43cea2 10%, #51C2E7 90%) !important; /* W3C */
+}
+
+.picker__weekday-display{
+	background-color: transparent !important;
+}
+
+.picker__select--year.browser-default {
+	width: 30%;
+}
+
+.select-dropdown {
+	color: #9e9e9e;
+}

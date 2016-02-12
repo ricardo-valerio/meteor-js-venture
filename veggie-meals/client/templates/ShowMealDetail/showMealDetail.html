@@ -1,0 +1,50 @@
+<template name="showMealDetail">
+
+	<!-- user, datetime, report, title, photo, comments and love buttons -->
+	<div class="row center-align">
+		id of user's meal: {{ random_user_id }}
+		<br>
+		id of meal: {{ random_meal_id }}
+
+		<div class="divider"></div>
+		<div class="left-align fixed-top-margin">
+			<img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mealsFeadAvatars">
+			<span class="username-card">USERNAME</span>
+			<span class="right">time ago
+			<i style="margin-top: -11px;" class="icons-size mdi-action-highlight-remove right"></i>
+			</span>
+		</div>
+
+		<h5 style="color: #ee6e73;">Hello show Meal</h5>
+
+		<div class="col s12 m10 offset-m1 l10 offset-l1">
+			<div class="material-placeholder"><img class="materialboxed responsive-img" width="650" src="https://notdabblinginnormal.files.wordpress.com/2012/03/ddc-vegetarian-meal.jpg"></div>
+
+			<div class="row fixed-inner-margins-in-meals-feed">
+            <div class="col s6">
+              <a href="#modal-meals-feed-1245" class="modal-trigger expanded-buttons waves-effect waves-light btn-large GreenBlueGradientColor"><i style="width: 100%;" class="zmdi zmdi-comment-text"> 1786</i></a>
+            </div>
+            <div class="col s6">
+              <!-- Modal Trigger For Comments -->
+              <a id="meals-feed-1245" class="loveButton expanded-buttons waves-effect waves-red btn-large GreenBlueGradientColor"><i id="meals-feed-1245" style="width: 100%;" class="zmdi zmdi-favorite"> 16756</i></a>
+            </div>
+          </div>
+
+		</div>
+	</div>
+
+	<!-- ingredients and recipe tabs -->
+	<div class="row">
+		<p class="center-align flow-text">dolorem eligendi laudantium sequi voluptas quidem deleniti doloremque animi, distinctio officiis modi. Numquam deleniti enim ipsam eos, quae, autem at id neque nihil blanditiis ab exercitationem doloremque, quo repellat facilis modi ducimus officia!</p>
+		<div class="col s12">
+			<ul class="GreenBlueGradientColor tabs tabs-ingredients-recipe-of-random-user z-depth-1">
+				<li style="cursor: pointer;" class="tab col s6"><a href="#random-meal-ingredients" style="color: white;" class="active">Ingredients</a></li>
+				<li style="cursor: pointer;" class="tab col s6"><a href="#random-meal-recipe" style="color: white;" class="">Recipe</a></li>
+			</ul>
+
+			<div id="random-meal-ingredients" class="col s12">random meal ingredients</div>
+			<div id="random-meal-recipe" class="col s12">random meal recipe</div>
+		</div>
+	</div>
+
+</template>

@@ -1,0 +1,44 @@
+.mealsFeadAvatars {
+	height: 50px;
+	width: 50px;
+}
+
+.icons-size {
+	font-size: 2rem;
+	color: rgba(211, 211, 211, 0.27);
+	cursor: pointer;
+}
+
+.expanded-buttons {
+	width: 100%;
+}
+
+.fixed-inner-margins-in-meals-feed {
+	margin-bottom: -2px;
+	margin-top: 5px;
+}
+
+.username-card {
+	position: relative;
+	top: -33px;
+    left: 55px;
+	text-transform:
+	uppercase; margin-left: 9px;
+}
+
+.livestamp-meal{
+    top: -35px;
+    position: relative;
+}
+
+.fixed-top-margin {
+	margin-top: 5px;
+}
+
+.love-button-color-clicked {
+  background: -webkit-linear-gradient(180deg, #f857a6 10%, #ff5858 90%) !important; /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(180deg, #f857a6 10%, #ff5858 90%) !important; /* FF3.6+ */
+  background:     -ms-linear-gradient(180deg, #f857a6 10%, #ff5858 90%) !important; /* IE10 */
+  background:      -o-linear-gradient(180deg, #f857a6 10%, #ff5858 90%) !important; /* Opera 11.10+ */
+  background:         linear-gradient(180deg, #f857a6 10%, #ff5858 90%) !important; /* W3C */
+}

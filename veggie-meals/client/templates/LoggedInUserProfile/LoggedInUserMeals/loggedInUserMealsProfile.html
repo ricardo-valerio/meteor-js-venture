@@ -1,0 +1,15 @@
+<template name="loggedInUserMealsProfile">
+
+	<ul style="margin-top: 1rem;" class="GreenBlueGradientColor tabs tabs-meals-feelings-of-logged-in-user z-depth-1">
+		<li style="cursor: pointer;" class="tab col s6"><a href="#user-own-meals-profile" style="color: white;" class="active">Own</a></li>
+		<li style="cursor: pointer;" class="tab col s6"><a href="#user-loved-meals-profile" style="color: white;" class="">Loved</a></li>
+	</ul>
+
+	<div id="user-own-meals-profile" class="col s12">
+		{{ > loggedInUserOwnMeals }}
+	</div>
+	<div id="user-loved-meals-profile" class="col s12">
+		{{ > loggedInUserLovedMeals }}
+	</div>
+
+</template>

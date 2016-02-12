@@ -1,0 +1,15 @@
+<template name="showMealsOfRandomUser">
+
+	<ul style="margin-top: 1rem;" class="GreenBlueGradientColor tabs tabs-meals-feelings-of-random-user collapsible-random-user-meals z-depth-1">
+		<li style="cursor: pointer;" class="tab col s6"><a href="#random-user-own-meals-profile" style="color: white;" class="active">Own</a></li>
+		<li style="cursor: pointer;" class="tab col s6"><a href="#random-user-loved-meals-profile" style="color: white;" class="">Loved</a></li>
+	</ul>
+
+	<div id="random-user-own-meals-profile" class="col s12">
+		{{ > randomUserOwnMeals }}
+	</div>
+	<div id="random-user-loved-meals-profile" class="col s12">
+		{{ > randomUserLovedMeals }}
+	</div>
+
+</template>

@@ -1,0 +1,113 @@
+<template name="mealsFeed">
+
+<div class="container center-align section">
+
+      <!-- START CARD -->
+      <div class="divider"></div>
+      <div class="left-align fixed-top-margin">
+        <a href="/user/876544gi43gi543ig">
+          <!-- <img src="https://www.seoclerk.com/pics/240109-1uE9Qn1405591899.png" alt="" class="circle mealsFeadAvatars"> -->
+          {{> avatar userId=user_id size="medium" shape="circle"}}
+          <span class="username-card">Ricardo Valério</span>
+        </a>
+        <span class="right livestamp-meal">{{ livestamp }}<i style="margin-top: -11px;" class="icons-size mdi-action-highlight-remove right"></i>
+        </span>
+      </div>
+       <div class="row section">
+        <div class="col s12 m10 offset-m1 l10 offset-l1">
+          <div class="card hoverable">
+           <div class="card-image waves-effect waves-block waves-light">
+             <img class="activator responsive-image" src="http://urbannaturale.com/wp-content/uploads/2013/10/IMG_5436-660-Curry-Vegetables-Mana.jpg">
+           </div>
+           <div style="margin-top: -15px;" class="card-content">
+            <div class="row fixed-inner-margins-in-meals-feed">
+              <div class="col s6">
+                <a href="#modal-meals-feed-1245" class="modal-trigger expanded-buttons waves-effect waves-light btn-large GreenBlueGradientColor"><i style="width: 100%;" class="zmdi zmdi-comment-text"> 1786</i></a>
+              </div>
+              <div class="col s6">
+                <!-- Modal Trigger For Comments -->
+                <a id="meals-feed-1245" class="loveButton expanded-buttons waves-effect waves-red btn-large GreenBlueGradientColor"><i id="meals-feed-1245" style="width: 100%;" class="zmdi zmdi-favorite"> 16756</i></a>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-reveal">
+           <span class="card-title grey-text text-darken-4" style="color: #EE6E73 !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, accusantium!</span>
+           <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est modi amet animi reiciendis quia quis molestiae possimus ipsum quae aut, voluptatibus odio? Doloribus itaque temporibus harum nemo exercitationem commodi possimus ducimus adipisci neque numquam provident dolorum, eaque, asperiores blanditiis aut!</p>
+         </div>
+       </div>
+     </div>
+    </div>
+
+  <!-- MODAL -->
+
+    <!-- Modal Structure -->
+    <div id="modal-meals-feed-1245" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>
+          <!-- <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mealsFeadAvatars"> -->
+          {{> avatar userId=user_id size="medium" shape="circle"}}
+          <span class="username-card">Ricardo Valério</span>
+        </h4>
+        <div class="divider"></div>
+        <!-- SPINNER -->
+
+       <div id="modal-for-comments-post-with-id-1245" class="container">
+         <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      </div>
+      <!-- END CARD -->
+
+    </div>
+
+  </div>
+
+  <div class="row center-align">
+    <a style="background: #A4DAD5;" class="btn-floating btn-large waves-effect waves-light"><i class="zmdi zmdi-plus-circle"></i></a>
+  </div>
+
+</template>

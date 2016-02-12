@@ -1,0 +1,33 @@
+.collapsible-header {
+	height: 5rem !important;
+}
+
+.collapsible-header img{
+	margin: 12px;
+}
+
+.post-title {
+	position: relative;
+	top: -32px;
+	left: 80px;
+}
+
+.username-post {
+	margin-left: 1.2em;
+	margin-bottom: -0.7em;
+}
+
+.fixed-inner-margins-in-feelings-feed {
+	margin-left: 10% !important;
+	margin-right: 10% !important;
+}
+
+.post-of-user-logged-in {
+	border-left-width: 11px;
+	border-left-style: solid;
+	border-left-color: orange;
+}
+
+.time-ago-feelings-feed {
+	margin-top: 1em;
+}
