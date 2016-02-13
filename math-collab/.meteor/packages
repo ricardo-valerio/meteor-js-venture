@@ -19,4 +19,20 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
-dascire:katex
+
+
+msavin:mongol
+
+iron:router
+ls3271:meteor-linkify
+#dascire:katex
+summernote:summernote@=0.7.3
+fortawesome:fontawesome
+twbs:bootstrap@=3.3.6
+lc3t35:datatables-bootstrap3
+copleykj:livestamp
+momentjs:moment
+qnub:emojione
+gantrim:codemirror
+mrt:jq-flowtype
+mrt:mathjax
