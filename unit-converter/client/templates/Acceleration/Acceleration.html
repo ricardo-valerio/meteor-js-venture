@@ -1,0 +1,138 @@
+<template name="acceleration">
+    <div class="row">
+
+      <div class="col s12">
+            <h2>Acceleration</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore libero iure culpa tenetur, esse, vitae hic beatae debitis cupiditate, error unde at repellat, repudiandae nesciunt aspernatur! Temporibus, earum, asperiores! Laborum!</p>
+            <div class="divider"></div>
+       </div>
+
+      <div class="col s12 m6">
+        <row>
+            <h5>From:</h5>
+            <div class="input-field col s9">
+              <input id="quantityToConvert" name="quantity" type="number" class="validate center" value="1">
+            </div>
+            <div class="col s3 fromUnitsNotation">m/sec²</div>
+            <div class="input-field col s12 fromUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__meter_square_second" checked />
+                    <label for="from__meter_square_second">meter / square second (m/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__centimeter_square_second" />
+                    <label for="from__centimeter_square_second">centimeter / square second (cm/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__foot_square_second" />
+                    <label for="from__foot_square_second">foot / square second (ft/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__standard_gravity" />
+                    <label for="from__standard_gravity">standard gravity (grav)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__gal" />
+                    <label for="from__gal">gal (cm/s²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__g_force" />
+                    <label for="from__g_force">g-force (g)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__kilometer_square_hour" />
+                    <label for="from__kilometer_square_hour">kilometer / square hour (km/h²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__kilometer_hour_second" />
+                    <label for="from__kilometer_hour_second">kilometer / hour second (km/h-s)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__mile_hour_minute" />
+                    <label for="from__mile_hour_minute">mile / hour minute (mi/h-min)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__mile_hour_second" />
+                    <label for="from__mile_hour_second">mile / hour second (mi/hr-s)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__mile_square_second" />
+                    <label for="from__mile_square_second">mile / square second (mi/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__inch_square_second" />
+                    <label for="from__inch_square_second">inch / square second (in/s²)</label>
+                </p>
+            </div>
+        </row>
+      </div>
+      <div class="col s12 m6">
+        <row>
+            <h5 class="switch">To:
+                <label class="right"> (scientific notation)
+                &nbsp;&nbsp;&nbsp;
+                  Off
+                  <input id="scientificNotation" type="checkbox" >
+                  <span class="lever"></span>
+                  On
+                </label>
+            </h5>
+            <div class="input-field col s9">
+              <input disabled id="conversionResult" name="conversionResult" class="center" type="number" value="1">
+            </div>
+            <div class="col s3 toUnitsNotation">m/sec²</div>
+            <div class="input-field col s12 toUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__meter_square_second" checked />
+                    <label for="to__meter_square_second">meter / square second (m/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__centimeter_square_second" />
+                    <label for="to__centimeter_square_second">centimeter / square second (cm/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__foot_square_second" />
+                    <label for="to__foot_square_second">foot / square second (ft/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__standard_gravity" />
+                    <label for="to__standard_gravity">standard gravity (grav)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__gal" />
+                    <label for="to__gal">gal (cm/s²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__g_force" />
+                    <label for="to__g_force">g-force (g)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__kilometer_square_hour" />
+                    <label for="to__kilometer_square_hour">kilometer / square hour (km/h²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__kilometer_hour_second" />
+                    <label for="to__kilometer_hour_second">kilometer / hour second (km/h-s)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__mile_hour_minute" />
+                    <label for="to__mile_hour_minute">mile / hour minute (mi/h-min)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__mile_hour_second" />
+                    <label for="to__mile_hour_second">mile / hour second (mi/hr-s)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__mile_square_second" />
+                    <label for="to__mile_square_second">mile / square second (mi/sec²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__inch_square_second" />
+                    <label for="to__inch_square_second">inch / square second (in/s²)</label>
+                </p>
+            </div>
+        </row>
+      </div>
+
+    </div>
+</template>

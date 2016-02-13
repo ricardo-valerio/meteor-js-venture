@@ -1,0 +1,7 @@
+.side-nav li.active{
+    background-color: #26a69a !important;
+}
+
+.side-nav li.active a{
+    color: white !important;
+}

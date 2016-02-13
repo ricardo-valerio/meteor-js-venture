@@ -1,0 +1,128 @@
+<template name="sideNav">
+
+    <div class="container">
+
+    </div>
+
+  <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+    <li class="{{ activeIfRouteIs 'acceleration' }}">
+        <a href="/acceleration" class="waves-effect waves-teal">
+            <i class="fa fa-tachometer"></i> &nbsp;&nbsp; Acceleration
+        </a>
+    </li>
+    <li class="{{ activeIfRouteIs 'amount-of-substance' }}">
+        <a href="/amount-of-substance" class="waves-effect waves-teal">
+            <i class="fa fa-flask"></i> &nbsp;&nbsp; Amount of substance
+        </a>
+    </li>
+    <li class="{{ activeIfRouteIs 'angle' }}">
+        <a href="/angle" class="waves-effect waves-teal"><i class="fa fa-crop"></i> &nbsp;&nbsp; Angle</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'area' }}">
+        <a href="/area" class="waves-effect waves-teal"><i class="fa fa-area-chart"></i> &nbsp;&nbsp; Area</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'astronomical' }}">
+        <a href="/astronomical" class="waves-effect waves-teal"><i class="fa fa-rocket"></i> &nbsp;&nbsp; Astronomical</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'blood-sugar' }}">
+        <a href="/blood-sugar" class="waves-effect waves-teal"><i class="fa fa-tint"></i> &nbsp;&nbsp; Blood sugar</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'capacitance' }}">
+        <a href="/capacitance" class="waves-effect waves-teal"><i class="fa fa-magnet"></i> &nbsp;&nbsp; Capacitance</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'computer-data-storage' }}">
+        <a href="/computer-data-storage" class="waves-effect waves-teal"><i class="fa fa-desktop"></i> &nbsp;&nbsp; Computer data storage</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'data-transfer' }}">
+        <a href="/data-transfer" class="waves-effect waves-teal"><i class="fa fa-exchange"></i> &nbsp;&nbsp; Data transfer</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'density' }}">
+        <a href="/density" class="waves-effect waves-teal"><i class="fa fa-hourglass-half"></i> &nbsp;&nbsp; Density</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'dinamic-viscosity' }}">
+        <a href="/dinamic-viscosity" class="waves-effect waves-teal"><i class="fa fa-history"></i> &nbsp;&nbsp; Dinamic viscosity</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'electric-charge' }}">
+        <a href="/electric-charge" class="waves-effect waves-teal"><i class="fa fa-bolt"></i> &nbsp;&nbsp; Electric charge</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'electrical-resistance' }}">
+        <a href="/electrical-resistance" class="waves-effect waves-teal"><i class="fa fa-align-center"></i> &nbsp;&nbsp; Electrical resistance</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'energy' }}">
+        <a href="/energy" class="waves-effect waves-teal"><i class="fa fa-plug"></i> &nbsp;&nbsp; Energy</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'force' }}">
+        <a href="/force" class="waves-effect waves-teal"><i class="fa fa-shield"></i> &nbsp;&nbsp; Force</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'illuminance' }}">
+        <a href="/illuminance" class="waves-effect waves-teal"><i class="fa fa-sun-o"></i> &nbsp;&nbsp; Illuminance</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'inductance' }}">
+        <a href="/inductance" class="waves-effect waves-teal"><i class="fa fa-battery-half"></i> &nbsp;&nbsp; Inductance</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'length-unit' }}">
+        <a href="/length-unit" class="waves-effect waves-teal"><i class="fa fa-arrows-h"></i> &nbsp;&nbsp; Length</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'luminance' }}">
+        <a href="/luminance" class="waves-effect waves-teal"><i class="fa fa-lightbulb-o"></i> &nbsp;&nbsp; Luminance</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'luminous-energy' }}">
+        <a href="/luminous-energy" class="waves-effect waves-teal"><i class="fa fa-plus-square-o"></i> &nbsp;&nbsp; Luminous energy</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'luminous-intensity' }}">
+        <a href="/luminous-intensity" class="waves-effect waves-teal"><i class="fa fa-signal"></i> &nbsp;&nbsp; Luminous intensity</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'magnetic-field' }}">
+        <a href="/magnetic-field" class="waves-effect waves-teal"><i class="fa fa-magnet"></i> &nbsp;&nbsp; Magnetic field</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'magnetic-field-strength' }}">
+        <a href="/magnetic-field-strength" class="waves-effect waves-teal"><i class="fa fa-magnet"></i> &nbsp;&nbsp; Magnetic field strength</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'magnetic-flux' }}">
+        <a href="/magnetic-flux" class="waves-effect waves-teal"><i class="fa fa-magnet"></i> &nbsp;&nbsp; Magnetic flux</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'magnetomotive-force' }}">
+        <a href="/magnetomotive-force" class="waves-effect waves-teal"><i class="fa fa-chain-broken"></i> &nbsp;&nbsp; Magnetomotive force</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'metric' }}">
+        <a href="/metric" class="waves-effect waves-teal"><i class="fa fa-bars"></i> &nbsp;&nbsp; Metric</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'molar-mass' }}">
+        <a href="/molar-mass" class="waves-effect waves-teal"><i class="fa fa-circle"></i> &nbsp;&nbsp; Molar mass</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'power' }}">
+        <a href="/power" class="waves-effect waves-teal"><i class="fa fa-bolt"></i> &nbsp;&nbsp; Power</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'pressure' }}">
+        <a href="/pressure" class="waves-effect waves-teal"><i class="fa fa-compress"></i> &nbsp;&nbsp; Pressure</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'radioactive-decay' }}">
+        <a href="/radioactive-decay" class="waves-effect waves-teal"><i class="fa fa-arrows-alt"></i> &nbsp;&nbsp; Radioactive decay</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'radioactivity-equivalent-dose' }}">
+        <a href="/radioactivity-equivalent-dose" class="waves-effect waves-teal"><i class="fa fa-ils"></i> &nbsp;&nbsp; Radioactivity equivalent dose</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'speed' }}">
+        <a href="/speed" class="waves-effect waves-teal"><i class="fa fa-fighter-jet"></i> &nbsp;&nbsp; Speed</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'speed-of-wind' }}">
+        <a href="/speed-of-wind" class="waves-effect waves-teal"><i class="fa fa-mixcloud"></i> &nbsp;&nbsp; Speed of wind</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'temperature' }}">
+        <a href="/temperature" class="waves-effect waves-teal"><i class="fa fa-fire"></i> &nbsp;&nbsp; Temperature</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'time' }}">
+        <a href="/time" class="waves-effect waves-teal"><i class="fa fa-clock-o"></i> &nbsp;&nbsp; Time</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'torque' }}">
+        <a href="/torque" class="waves-effect waves-teal"><i class="fa fa-undo"></i> &nbsp;&nbsp; Torque</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'volume' }}">
+        <a href="/volume" class="waves-effect waves-teal"><i class="fa fa-archive"></i> &nbsp;&nbsp; Volume</a>
+    </li>
+    <li class="{{ activeIfRouteIs 'weight' }}">
+        <a href="/weight" class="waves-effect waves-teal"><i class="fa fa-shopping-bag"></i> &nbsp;&nbsp; Weight</a>
+    </li>
+  </ul>
+
+</template>

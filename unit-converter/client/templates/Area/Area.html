@@ -1,0 +1,127 @@
+<template name="area">
+
+
+    <div class="row">
+
+      <div class="col s12">
+        <h2>Area</h2>
+        <p>Angle - a geometric term describing a figure that consists of two rays with a common end point.</p>
+        <div class="divider"></div>
+      </div>
+
+
+      <div class="col s12 m6">
+        <row>
+            <h5>From:</h5>
+            <div class="input-field col s9">
+              <input id="quantityToConvert" name="quantity" type="number" class="validate center" value="1">
+            </div>
+            <div class="col s3 fromUnitsNotation">deg</div>
+            <div class="input-field col s12 fromUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__degrees" checked />
+                    <label for="from__degrees">acre (acre)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__full_circle" />
+                    <label for="from__full_circle">are (a)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__grad" />
+                    <label for="from__grad">barn (b)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__radians" />
+                    <label for="from__radians">hectare (ha)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__degrees" checked />
+                    <label for="from__degrees">homestead (hs)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__full_circle" />
+                    <label for="from__full_circle">rood (rood)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__grad" />
+                    <label for="from__grad">square centimeter (cm²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__radians" />
+                    <label for="from__radians">square foot (ft²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__degrees" checked />
+                    <label for="from__degrees">square inch (in²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__full_circle" />
+                    <label for="from__full_circle">square kilometer (km²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__grad" />
+                    <label for="from__grad">square meter (m²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__radians" />
+                    <label for="from__radians">square mile (mile²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__degrees" checked />
+                    <label for="from__degrees">square millimeter (mm²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__full_circle" />
+                    <label for="from__full_circle">square rod (rood²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__grad" />
+                    <label for="from__grad">square yard (yd²)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__radians" />
+                    <label for="from__radians">township (twp)</label>
+                </p>
+
+            </div>
+        </row>
+      </div>
+      <div class="col s12 m6">
+        <row>
+            <h5 class="switch">To:
+                <label class="right"> (scientific notation)
+                &nbsp;&nbsp;&nbsp;
+                  Off
+                  <input id="scientificNotation" type="checkbox" >
+                  <span class="lever"></span>
+                  On
+                </label>
+            </h5>
+            <div class="input-field col s9">
+              <input disabled id="conversionResult" name="conversionResult" class="center" type="number" value="1">
+            </div>
+            <div class="col s3 toUnitsNotation">deg</div>
+            <div class="input-field col s12 toUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__degrees" checked />
+                    <label for="to__degrees">degrees (deg)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__full_circle" />
+                    <label for="to__full_circle">full circle (fc)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__grad" />
+                    <label for="to__grad">grad (grad)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__radians" />
+                    <label for="to__radians">radians (rad)</label>
+                </p>
+            </div>
+        </row>
+      </div>
+
+    </div>
+
+</template>

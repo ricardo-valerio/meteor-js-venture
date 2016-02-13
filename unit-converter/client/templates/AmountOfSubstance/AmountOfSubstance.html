@@ -1,0 +1,76 @@
+<template name="amountOfSubstance">
+
+    <div class="row">
+
+      <div class="col s12">
+            <h2>Amount of Substance</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore libero iure culpa tenetur, esse, vitae hic beatae debitis cupiditate, error unde at repellat, repudiandae nesciunt aspernatur! Temporibus, earum, asperiores! Laborum!</p>
+            <div class="divider"></div>
+       </div>
+
+      <div class="col s12 m6">
+        <row>
+            <h5>From:</h5>
+            <div class="input-field col s9">
+              <input id="quantityToConvert" name="quantity" type="number" class="validate center" value="1">
+            </div>
+            <div class="col s3 fromUnitsNotation">mol</div>
+            <div class="input-field col s12 fromUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__millimole" />
+                    <label for="from__millimole">millimole (mmol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__mol" checked />
+                    <label for="from__mol">mol (mol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__kilomole" />
+                    <label for="from__kilomole">kilomole (kmol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupFromUnits" id="from__pound_mole" />
+                    <label for="from__pound_mole">pound mole (lb-mol)</label>
+                </p>
+            </div>
+        </row>
+      </div>
+      <div class="col s12 m6">
+        <row>
+            <h5 class="switch">To:
+                <label class="right"> (scientific notation)
+                &nbsp;&nbsp;&nbsp;
+                  Off
+                  <input id="scientificNotation" type="checkbox" >
+                  <span class="lever"></span>
+                  On
+                </label>
+            </h5>
+            <div class="input-field col s9">
+              <input disabled id="conversionResult" name="conversionResult" class="center" type="number" value="1">
+            </div>
+            <div class="col s3 toUnitsNotation">mol</div>
+            <div class="input-field col s12 toUnits">
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__millimole" />
+                    <label for="to__millimole">millimole (mmol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__mol" checked />
+                    <label for="to__mol">mol (mol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__kilomole" />
+                    <label for="to__kilomole">kilomole (kmol)</label>
+                </p>
+                <p>
+                    <input class="with-gap" type="radio" name="groupToUnits" id="to__pound_mole" />
+                    <label for="to__pound_mole">pound mole (lb-mol)</label>
+                </p>
+            </div>
+        </row>
+      </div>
+
+    </div>
+
+</template>
